@@ -1,4 +1,4 @@
-﻿{
+{
   "dependencies": {
     "Microsoft.NETCore.App": {
       "version": "1.0.0",
@@ -10,7 +10,9 @@
     "Microsoft.AspNetCore.Routing": "1.0.0",
     "Microsoft.Extensions.Configuration.Json": "1.0.0",
     "Microsoft.AspNetCore.Mvc.ViewFeatures": "1.0.0",
-    "Microsoft.AspNetCore.Mvc": "1.0.0"
+    "Microsoft.AspNetCore.Mvc": "1.0.0",
+    "CityLocal.DataEngine": "1.0.0-*",
+    "AutoMapper": "5.0.2"
   },
 
   "tools": {

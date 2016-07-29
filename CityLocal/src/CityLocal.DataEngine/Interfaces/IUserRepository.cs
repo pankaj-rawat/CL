@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CityLocal.API.Models;
 
-namespace CityLocal.API.Interfaces
+namespace CityLocal.DataEngine.Interfaces
 {
     public interface IUserRepository
     {

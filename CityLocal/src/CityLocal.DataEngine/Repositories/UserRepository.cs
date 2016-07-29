@@ -1,27 +1,16 @@
-﻿using System;
+﻿using CityLocal.DataEngine.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CityLocal.API.Interfaces;
-using CityLocal.API.Models;
 
-namespace CityLocal.API.Repositories
+namespace CityLocal.DataEngine.Repositories
 {
-    public class UserRepository:IUserRepository
+    public class UserRepository : IUserRepository
     {
         public int Add(User user)
         {
-            throw new NotImplementedException();
-        }
-
-        public int Update(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Remove(int id)
-        {
-            throw new NotImplementedException();
+            return user.Id;
         }
 
         public User Find(int id)
@@ -34,7 +23,6 @@ namespace CityLocal.API.Repositories
             user.Password = "Password";
             user.PhoneCell = 9811666755;
             return user;
-            ;
         }
 
         public IEnumerable<User> GetAll()
@@ -58,6 +46,16 @@ namespace CityLocal.API.Repositories
             user.PhoneCell = 9811666755;
             users.Add(user);
             return users;
+        }
+
+        public int Remove(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Update(User user)
+        {
+            throw new NotImplementedException();
         }
     }
 }

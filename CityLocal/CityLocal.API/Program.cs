@@ -17,7 +17,6 @@ namespace CityLocal.API
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .Build();
-
             host.Run();
         }
     }

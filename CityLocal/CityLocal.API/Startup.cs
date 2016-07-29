@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using CityLocal.API.Interfaces;
-using CityLocal.API.Middleware;
-using CityLocal.API.Repositories;
+﻿using CityLocal.API.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Formatters;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-
 
 namespace CityLocal.API
 {
@@ -36,11 +27,11 @@ namespace CityLocal.API
         {
             services.AddMvc(options =>
             {
-                //options.OutputFormatters.RemoveType<TextOutputFormatter>();
                 options.OutputFormatters.RemoveType<HttpNoContentOutputFormatter>();
             });
             services.AddLogging();
-            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<DataEngine.Interfaces.IUserRepository, DataEngine.Repositories.UserRepository>();
+            services.AddSingleton<IObjectMapper, ObjectMapper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +46,8 @@ namespace CityLocal.API
             {
                 //app.UseDeveloperExceptionPage();
             }
+
+           
         }
     }
 }
