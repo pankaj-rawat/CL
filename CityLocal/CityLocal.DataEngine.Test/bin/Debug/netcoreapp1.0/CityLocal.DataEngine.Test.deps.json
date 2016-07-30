@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "68ebce30712307f631c1dc9052c8ffae87490b4a"
+    "signature": "510009492563997cc225c255a1b06e087c423768"
   },
   "compilationOptions": {},
   "targets": {
@@ -34,6 +34,7 @@
           "lib/netcoreapp1.0/dotnet-test-xunit.dll": {}
         }
       },
+      "EntityFramework/6.0.0": {},
       "Microsoft.DiaSymReader/1.0.8": {
         "runtime": {
           "lib/netstandard1.1/Microsoft.DiaSymReader.dll": {}
@@ -102,6 +103,13 @@
         },
         "runtime": {
           "lib/netstandard1.6/Microsoft.Extensions.Testing.Abstractions.dll": {}
+        }
+      },
+      "MySql.Data/6.8.8": {},
+      "MySql.Data.Entity/6.8.8": {
+        "dependencies": {
+          "EntityFramework": "6.0.0",
+          "MySql.Data": "6.8.8"
         }
       },
       "Newtonsoft.Json/9.0.1": {
@@ -311,6 +319,11 @@
       "serviceable": true,
       "sha512": "sha512-mPl4HHGcXsE4ljw3sHCOUvlyhXHDpfFO6qz0HbTQrhrFT8Tgm/HFLfz6TpMXUfch7rRL23kR8i0yjQPYdsl6EQ=="
     },
+    "EntityFramework/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-y6lX/VMghGBV6TvgQS4Q2WK6kAcOoyD+TQxObN9utd0JsMMdMxyqARxKbvgi7KEIbQ8osZ4ZvImaly7l3NDFDw=="
+    },
     "Microsoft.DiaSymReader/1.0.8": {
       "type": "package",
       "serviceable": true,
@@ -340,6 +353,16 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-q3Uq07d6LbYr0NiX5Dz9GCbXJv4vkmSbUvFEmov3Vo4prZWjhFzF+byk2tWAEEqtZ6ereMYXBUt99wCTtANk6Q=="
+    },
+    "MySql.Data/6.8.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0kms5QTb5jXd6UXUsPSSZU40iTExT9Th99qLKu+o8iGftKPiYVKY+n2s6Fd6O5piCA85PyKU7xaUw5fMxbOEhw=="
+    },
+    "MySql.Data.Entity/6.8.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SakHlO60xsQwKjtTXzz2YyFu5F2N7Z4dR0wxDtu5Cy7MML8lXt26JJaA2PXjCZ2LKJNcHsmVwLzurqp77k4j8g=="
     },
     "Newtonsoft.Json/9.0.1": {
       "type": "package",

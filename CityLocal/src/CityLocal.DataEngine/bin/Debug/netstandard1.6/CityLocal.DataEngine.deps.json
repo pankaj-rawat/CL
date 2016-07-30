@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v1.6/",
-    "signature": "98410340d96f05c8f1c70e5f48a43fc505bc7912"
+    "signature": "28a86bc9c07cc4f4befee430b869b35a8d2d5abf"
   },
   "compilationOptions": {},
   "targets": {
@@ -41,6 +41,7 @@
           "lib/netstandard1.3/Dapper.dll": {}
         }
       },
+      "EntityFramework/6.0.0": {},
       "Microsoft.NETCore.Platforms/1.0.1": {},
       "Microsoft.NETCore.Targets/1.0.1": {},
       "Microsoft.Win32.Primitives/4.0.1": {
@@ -48,6 +49,13 @@
           "Microsoft.NETCore.Platforms": "1.0.1",
           "Microsoft.NETCore.Targets": "1.0.1",
           "System.Runtime": "4.1.0"
+        }
+      },
+      "MySql.Data/6.8.8": {},
+      "MySql.Data.Entity/6.8.8": {
+        "dependencies": {
+          "EntityFramework": "6.0.0",
+          "MySql.Data": "6.8.8"
         }
       },
       "NETStandard.Library/1.6.0": {
@@ -1037,6 +1045,11 @@
       "serviceable": true,
       "sha512": "sha512-PhxIV8TI/5aYdLT4epuIZB+Evf0sv9gcQDpFGa04fSKDfNQIChRq0sKUgQbfpFWbuDW/UDDuiL3Grkhp/cvYrA=="
     },
+    "EntityFramework/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-y6lX/VMghGBV6TvgQS4Q2WK6kAcOoyD+TQxObN9utd0JsMMdMxyqARxKbvgi7KEIbQ8osZ4ZvImaly7l3NDFDw=="
+    },
     "Microsoft.NETCore.Platforms/1.0.1": {
       "type": "package",
       "serviceable": true,
@@ -1051,6 +1064,16 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-fQnBHO9DgcmkC9dYSJoBqo6sH1VJwJprUHh8F3hbcRlxiQiBUuTntdk8tUwV490OqC2kQUrinGwZyQHTieuXRA=="
+    },
+    "MySql.Data/6.8.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0kms5QTb5jXd6UXUsPSSZU40iTExT9Th99qLKu+o8iGftKPiYVKY+n2s6Fd6O5piCA85PyKU7xaUw5fMxbOEhw=="
+    },
+    "MySql.Data.Entity/6.8.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SakHlO60xsQwKjtTXzz2YyFu5F2N7Z4dR0wxDtu5Cy7MML8lXt26JJaA2PXjCZ2LKJNcHsmVwLzurqp77k4j8g=="
     },
     "NETStandard.Library/1.6.0": {
       "type": "package",

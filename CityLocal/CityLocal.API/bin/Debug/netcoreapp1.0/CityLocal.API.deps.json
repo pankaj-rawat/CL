@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "c1f3129b940d4d8a742160baaaac644a93852641"
+    "signature": "f5b063e51d58ada1a4afd25b103be48f0e7ac047"
   },
   "compilationOptions": {
     "defines": [
@@ -78,6 +78,7 @@
           "lib/netstandard1.3/Dapper.dll": {}
         }
       },
+      "EntityFramework/6.0.0": {},
       "Microsoft.AspNetCore.Antiforgery/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.DataProtection": "1.0.0",
@@ -1088,6 +1089,13 @@
         },
         "compile": {
           "lib/netstandard1.1/Microsoft.Net.Http.Headers.dll": {}
+        }
+      },
+      "MySql.Data/6.8.8": {},
+      "MySql.Data.Entity/6.8.8": {
+        "dependencies": {
+          "EntityFramework": "6.0.0",
+          "MySql.Data": "6.8.8"
         }
       },
       "Newtonsoft.Json/9.0.1": {
@@ -3038,6 +3046,11 @@
       "serviceable": true,
       "sha512": "sha512-PhxIV8TI/5aYdLT4epuIZB+Evf0sv9gcQDpFGa04fSKDfNQIChRq0sKUgQbfpFWbuDW/UDDuiL3Grkhp/cvYrA=="
     },
+    "EntityFramework/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-y6lX/VMghGBV6TvgQS4Q2WK6kAcOoyD+TQxObN9utd0JsMMdMxyqARxKbvgi7KEIbQ8osZ4ZvImaly7l3NDFDw=="
+    },
     "Microsoft.AspNetCore.Antiforgery/1.0.0": {
       "type": "package",
       "serviceable": true,
@@ -3357,6 +3370,16 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-1lr92itF1fKR2oEQ6gk1IUsuCgp7UMlf/b1sjlAyuDeUnttj39ra59GQHYpomglJX1UVNpi1/cSBbEsXoNeIhw=="
+    },
+    "MySql.Data/6.8.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0kms5QTb5jXd6UXUsPSSZU40iTExT9Th99qLKu+o8iGftKPiYVKY+n2s6Fd6O5piCA85PyKU7xaUw5fMxbOEhw=="
+    },
+    "MySql.Data.Entity/6.8.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SakHlO60xsQwKjtTXzz2YyFu5F2N7Z4dR0wxDtu5Cy7MML8lXt26JJaA2PXjCZ2LKJNcHsmVwLzurqp77k4j8g=="
     },
     "Newtonsoft.Json/9.0.1": {
       "type": "package",

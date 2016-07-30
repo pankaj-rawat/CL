@@ -27,6 +27,7 @@ namespace CityLocal.DataEngine.Repositories
 
         public IEnumerable<User> GetAll()
         {
+            
             IList<User> users = new List<User>();
             User user = new User();
             user.Id = 1;
