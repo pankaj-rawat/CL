@@ -25,6 +25,9 @@
     },
     "body-parser/body-parser.d.ts": {
       "commit": "0d1048c7bbac722c592c5e9af54e310fc5658053"
+    },
+    "async/async.d.ts": {
+      "commit": "bc38caf4c4781b8a9b13785a0529fcd47fd1bfb4"
     }
   }
 }

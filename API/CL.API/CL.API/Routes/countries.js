@@ -1,12 +1,10 @@
-﻿import {countryRepository} from "../Repositories/citystatecountryrepository";
-import {clResponse} from "../clresponse";
-
+"use strict";
+var citystatecountryrepository_1 = require("../Repositories/citystatecountryrepository");
 var express = require('express');
 var countryController = express.Router();
-
 countryController.get('/:id', function (req, res) {
-    var cscrepo = new countryRepository();
-    var clRes: clResponse; 
+    var cscrepo = new citystatecountryrepository_1.countryRepository();
+    var clRes;
     try {
         var id = req.params.id;
         cscrepo.find(id, function (result) {
@@ -19,12 +17,11 @@ countryController.get('/:id', function (req, res) {
         res.send(clRes);
     }
 });
-
 countryController.get('/', function (req, res) {
-    var cscrepo = new countryRepository();
-    var clRes: clResponse;
+    var cscrepo = new citystatecountryrepository_1.countryRepository();
+    var clRes;
     try {
-          cscrepo.getAll(function (result) {
+        cscrepo.getAll(function (result) {
             clRes = { data: result, isValid: true };
             res.send(clRes);
         });
@@ -34,5 +31,5 @@ countryController.get('/', function (req, res) {
         res.send(clRes);
     }
 });
-
 module.exports = countryController;
+//# sourceMappingURL=countries.js.map

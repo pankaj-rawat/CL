@@ -1,7 +1,8 @@
-﻿export interface IUserRepository {
-    find(id: number): Model.User;
-    create(user: Model.User): number;
-    update(user: Model.User): Model.User;
+﻿import {UserModel} from "../Models/userModel";
+export interface IUserRepository {
+    find(id: number): UserModel;
+    create(user: UserModel): number;
+    update(user: UserModel): UserModel;
    remove(id: number): number;
-   getAll(): Model.User[];
+   getAll(): UserModel[];
 }

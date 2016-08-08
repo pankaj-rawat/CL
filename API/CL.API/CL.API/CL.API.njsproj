@@ -20,7 +20,7 @@
     <OutputPath>.</OutputPath>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
-    <ProjectView>ProjectFiles</ProjectView>
+    <ProjectView>ShowAllFiles</ProjectView>
     <NodejsPort>1337</NodejsPort>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
     <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
@@ -35,12 +35,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Scripts\tsd.json" />
-    <TypeScriptCompile Include="dbConnect.ts" />
+    <TypeScriptCompile Include="db.ts" />
     <TypeScriptCompile Include="Interfaces\ICityStateCountryRepository.ts" />
     <TypeScriptCompile Include="Interfaces\IUserRepository.ts" />
-    <TypeScriptCompile Include="Model\citystatecountry.ts" />
-    <TypeScriptCompile Include="Model\user.ts" />
+    <TypeScriptCompile Include="Models\citystatecountryModel.ts" />
     <TypeScriptCompile Include="Repositories\citystatecountryRepository.ts" />
+    <TypeScriptCompile Include="clresponse.ts" />
     <TypeScriptCompile Include="Repositories\userRepository.ts" />
     <TypeScriptCompile Include="router.ts" />
     <TypeScriptCompile Include="Routes\cities.ts" />
@@ -61,7 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces\" />
-    <Folder Include="Model\" />
+    <Folder Include="Models\" />
     <Folder Include="Repositories\" />
     <Folder Include="Routes\" />
     <Folder Include="Scripts\" />

@@ -1,21 +1,18 @@
-﻿import * as irepo from "../Interfaces/ICityStateCountryRepository";
-import * as model from "../Models/citystatecountryModel";
-import clResponse = require('../clresponse');
-import * as db from "../db";
-
-class CityRepository implements irepo.ICityRepository {
-    find(id: number, res: (city: model.CityModel) => void) {
-        var city: model.CityModel;
+"use strict";
+var db = require("../db");
+var CityRepository = (function () {
+    function CityRepository() {
+    }
+    CityRepository.prototype.find = function (id, res) {
+        var city;
         db.get().getConnection(function (err, connection) {
             var query = connection.query('SELECT * FROM city WHERE id = ?', id);
             query.on('error', function (err) {
                 throw err;
             });
-
             query.on('fields', function (fields) {
                 console.log(fields);
             });
-
             query.on('result', function (row, result) {
                 city =
                     {
@@ -24,10 +21,9 @@ class CityRepository implements irepo.ICityRepository {
                         state: undefined
                     };
             });
-
             query.on('end', function (result) {
                 connection.release();
-                var state: model.StateModel;
+                var state;
                 //populate state for the city
                 if (city.id != undefined) {
                     var stateRepo = new StateRepository();
@@ -41,20 +37,18 @@ class CityRepository implements irepo.ICityRepository {
                 }
             });
         });
-    }
-    getAll(res: (city: Array<model.CityModel>) => void) {
-        var cities: Array<model.CityModel> = new Array<model.CityModel>();
+    };
+    CityRepository.prototype.getAll = function (res) {
+        var cities = new Array();
         var query = db.get().query('SELECT * FROM city');
         query.on('error', function (err) {
             throw err;
         });
-
         query.on('fields', function (fields) {
             console.log(fields);
         });
-
         query.on('result', function (row, result) {
-            var state: model.StateModel;
+            var state;
             //populate state for the city
             if (row.id != undefined) {
                 var stateRepo = new StateRepository();
@@ -62,15 +56,13 @@ class CityRepository implements irepo.ICityRepository {
                     this.state = statRes;
                 });
             }
-            var city: model.CityModel =
-                {
-                    id: row.id,
-                    name: row.name,
-                    state: this.state
-                };
+            var city = {
+                id: row.id,
+                name: row.name,
+                state: this.state
+            };
             cities.push(city);
         });
-
         query.on('end', function (result) {
             //alternate way
             //if (result.rows.length > 0) {
@@ -80,23 +72,24 @@ class CityRepository implements irepo.ICityRepository {
             //}
             res(cities);
         });
+    };
+    return CityRepository;
+}());
+exports.cityRepository = CityRepository;
+;
+var StateRepository = (function () {
+    function StateRepository() {
     }
-};
-
-class StateRepository implements irepo.IStateRepository {
-    find(id: number, res: (state: model.StateModel) => void): void {
-        var state: model.StateModel;
+    StateRepository.prototype.find = function (id, res) {
+        var state;
         db.get().getConnection(function (err, connection) {
-
             var query = connection.query('SELECT * FROM state where id=?', id);
             query.on('error', function (err) {
                 throw err;
             });
-
             query.on('fields', function (fields) {
                 console.log(fields);
             });
-
             query.on('result', function (row, result) {
                 state =
                     {
@@ -106,10 +99,9 @@ class StateRepository implements irepo.IStateRepository {
                         country: undefined
                     };
             });
-
             query.on('end', function (result) {
                 connection.release();
-                var ctr: model.CountryModel;
+                var ctr;
                 if (state.id != undefined) {
                     var countryRepo = new CountryRepository();
                     countryRepo.find(state.id, function (ctr) {
@@ -122,43 +114,42 @@ class StateRepository implements irepo.IStateRepository {
                 }
             });
         });
-    }
-    getAll(res: (state: Array<model.StateModel>) => void): void {
-        var states: Array<model.StateModel> = new Array<model.StateModel>();
+    };
+    StateRepository.prototype.getAll = function (res) {
+        var states = new Array();
         var query = db.get().query('SELECT * FROM state');
         query.on('error', function (err) {
             throw err;
         });
-
         query.on('fields', function (fields) {
             console.log(fields);
         });
-
         query.on('result', function (row, result) {
-            var state: model.StateModel =
-                {
-                    id: row.id,
-                    abbr: row.abbr,
-                    name: row.name,
-                    country: {
-                        id: 1,
-                        abbr: 'IN',
-                        name: 'India'
-                    }
-                };
+            var state = {
+                id: row.id,
+                abbr: row.abbr,
+                name: row.name,
+                country: {
+                    id: 1,
+                    abbr: 'IN',
+                    name: 'India'
+                }
+            };
             states.push(state);
         });
-
         query.on('end', function (result) {
-
             res(states);
         });
+    };
+    return StateRepository;
+}());
+exports.stateRepository = StateRepository;
+;
+var CountryRepository = (function () {
+    function CountryRepository() {
     }
-};
-
-class CountryRepository implements irepo.ICountryRepository {
-    find(id: number, res: (country: model.CountryModel) => void): void {
-        var country: model.CountryModel;
+    CountryRepository.prototype.find = function (id, res) {
+        var country;
         db.get().getConnection(function (err, connection) {
             if (err) {
                 throw err;
@@ -167,11 +158,9 @@ class CountryRepository implements irepo.ICountryRepository {
             query.on('error', function (err) {
                 throw err;
             });
-
             query.on('fields', function (fields) {
                 console.log(fields);
             });
-
             query.on('result', function (row, result) {
                 country =
                     {
@@ -180,45 +169,38 @@ class CountryRepository implements irepo.ICountryRepository {
                         name: row.name
                     };
             });
-
             query.on('end', function (result) {
                 res(country);
                 connection.release();
             });
         });
-
-
-    }
-    getAll(res: (countries: Array<model.CountryModel>) => void): void {
-        var countries: Array<model.CountryModel> = new Array<model.CountryModel>();
+    };
+    CountryRepository.prototype.getAll = function (res) {
+        var countries = new Array();
         db.get().getConnection(function (err, connection) {
             var query = connection.query('SELECT * FROM country');
             query.on('error', function (err) {
                 throw err;
             });
-
             query.on('fields', function (fields) {
                 console.log(fields);
             });
-
             query.on('result', function (row, result) {
-                var country: model.CountryModel =
-                    {
-                        id: row.id,
-                        abbr: row.abbr,
-                        name: row.name
-                    };
+                var country = {
+                    id: row.id,
+                    abbr: row.abbr,
+                    name: row.name
+                };
                 countries.push(country);
             });
-
             query.on('end', function (result) {
                 connection.release();
                 res(countries);
             });
         });
-    }
-};
-
-export {CityRepository as cityRepository };
-export {StateRepository as stateRepository };
-export {CountryRepository as countryRepository };
+    };
+    return CountryRepository;
+}());
+exports.countryRepository = CountryRepository;
+;
+//# sourceMappingURL=citystatecountryRepository.js.map
