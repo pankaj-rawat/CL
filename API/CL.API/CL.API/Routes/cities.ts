@@ -16,7 +16,7 @@ cityController.get('/:id', function (req, res) {
         });       
     }
     catch (Error) {
-        clRes = { message: Error, isValid: true }
+        clRes = { message: Error, isValid: false }
         res.send(clRes);
     }   
 });
@@ -33,7 +33,7 @@ cityController.get('/', function (req, res) {
         });
     }
     catch (Error) {
-        clRes = { message: Error, isValid: true }
+        clRes = { message: Error, isValid: false }
         res.send(clRes);
     }
    
