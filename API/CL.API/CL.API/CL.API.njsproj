@@ -12,7 +12,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>ac4f7522-ab9a-4193-b8a2-df7fb48756a4</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>server.ts</StartupFile>
+    <StartupFile>index.ts</StartupFile>
     <StartWebBrowser>True</StartWebBrowser>
     <SearchPath>
     </SearchPath>
@@ -45,9 +45,13 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Config\production.json" />
+    <Content Include="Config\default.json" />
     <Content Include="Scripts\tsd.json" />
+    <Content Include="test\mocha.opts" />
     <Content Include="web.config" />
     <TypeScriptCompile Include="db.ts" />
+    <TypeScriptCompile Include="index.ts" />
     <TypeScriptCompile Include="Interfaces\ICityStateCountryRepository.ts" />
     <TypeScriptCompile Include="Interfaces\IUserRepository.ts" />
     <TypeScriptCompile Include="logger.ts" />
@@ -62,6 +66,7 @@
     <TypeScriptCompile Include="Routes\users.ts" />
     <TypeScriptCompile Include="Scripts\typings\async\async.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\body-parser\body-parser.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\config\config.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\express-serve-static-core\express-serve-static-core.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\express\express.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\mime\mime.d.ts" />
@@ -77,14 +82,21 @@
     <TypeScriptCompile Include="server.ts" />
     <Content Include="package.json" />
     <Content Include="README.md" />
-    <TypeScriptCompile Include="tests\cityStateCountryTest.ts" />
+    <TypeScriptCompile Include="test\cityStateCountryTest.ts">
+      <TestFramework>mocha</TestFramework>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="test\example.ts">
+      <TestFramework>Mocha</TestFramework>
+    </TypeScriptCompile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces\" />
     <Folder Include="Models\" />
+    <Folder Include="Config\" />
+    <Folder Include="Scripts\typings\config\" />
     <Folder Include="Scripts\typings\should\" />
     <Folder Include="Scripts\typings\winston\" />
-    <Folder Include="tests\" />
+    <Folder Include="test\" />
     <Folder Include="Repositories\" />
     <Folder Include="Routes\" />
     <Folder Include="Scripts\" />

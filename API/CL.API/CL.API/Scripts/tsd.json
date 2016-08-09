@@ -43,6 +43,9 @@
     },
     "winston/winston.d.ts": {
       "commit": "d7dfa08dd469b232243d2b1db7cf93e5783b1646"
+    },
+    "config/config.d.ts": {
+      "commit": "6e27d904871bff7655a081326a199f455f7cd982"
     }
   }
 }

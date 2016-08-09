@@ -1,4 +1,5 @@
 ﻿import supertest = require("supertest");
+var should = require("should");
 
 // This agent refers to PORT where program is runninng.
 
@@ -14,14 +15,12 @@ describe("SAMPLE unit test", function () {
 
         // calling home page api
         server
-            .get("/")
+            .get("/cities/10")
             .expect("Content-type", /json/)
             .expect(200) // THis is HTTP response
             .end(function (err, res) {
-                // HTTP status should be 200
                 res.status.should.equal(200);
-                // Error key should be false.
-                res.body.error.should.equal(false);
+               should(res.body.data).equal(undefined).not.be.ok;
                 done();
             });
     });

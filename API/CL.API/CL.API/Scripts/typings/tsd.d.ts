@@ -11,3 +11,4 @@
 /// <reference path="supertest/supertest.d.ts" />
 /// <reference path="should/should.d.ts" />
 /// <reference path="winston/winston.d.ts" />
+/// <reference path="config/config.d.ts" />

@@ -1,11 +1,6 @@
 ﻿import mysql = require('mysql');
+import config = require('config');
 import async = require('async');
-
-var PRODUCTION_DB = 'citylocaldb'
-    , DEV_DB = 'citylocaldb';
-
-export var MODE_DEV = 'mode_test'
-export var MODE_PRODUCTION = 'mode_production'
 
 var state = {
     pool: null,
@@ -14,11 +9,11 @@ var state = {
 
 export var connect = function (mode, done) {
     state.pool = mysql.createPool({
-        host: '127.0.0.1',
-        port: 3306,
-        user: 'root',
-        password: 'mysqlroot',
-        database: mode === exports.MODE_PRODUCTION ? PRODUCTION_DB : DEV_DB
+        host: config.get<string>('dbConfig.host'),
+        port: config.get<number>('dbConfig.port'),
+        user: config.get<string>('dbConfig.user'),
+        password: config.get<string>('dbConfig.password'),
+        database: config.get<string>('dbConfig.database')
     })
 
     state.mode = mode
