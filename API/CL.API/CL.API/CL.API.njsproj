@@ -52,14 +52,18 @@
     <Content Include="web.config" />
     <TypeScriptCompile Include="db.ts" />
     <TypeScriptCompile Include="index.ts" />
+    <TypeScriptCompile Include="Interfaces\IAuthRepository.ts" />
     <TypeScriptCompile Include="Interfaces\ICityStateCountryRepository.ts" />
     <TypeScriptCompile Include="Interfaces\IUserRepository.ts" />
     <TypeScriptCompile Include="logger.ts" />
     <TypeScriptCompile Include="Models\citystatecountryModel.ts" />
+    <TypeScriptCompile Include="Models\userModel.ts" />
+    <TypeScriptCompile Include="Repositories\authRepository.ts" />
     <TypeScriptCompile Include="Repositories\citystatecountryRepository.ts" />
     <TypeScriptCompile Include="clresponse.ts" />
     <TypeScriptCompile Include="Repositories\userRepository.ts" />
     <TypeScriptCompile Include="router.ts" />
+    <TypeScriptCompile Include="Routes\auth.ts" />
     <TypeScriptCompile Include="Routes\cities.ts" />
     <TypeScriptCompile Include="Routes\countries.ts" />
     <TypeScriptCompile Include="Routes\states.ts" />
@@ -69,6 +73,7 @@
     <TypeScriptCompile Include="Scripts\typings\config\config.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\express-serve-static-core\express-serve-static-core.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\express\express.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\lodash\lodash.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\mime\mime.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\mocha\mocha.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\mysql\mysql.d.ts" />
@@ -88,12 +93,15 @@
     <TypeScriptCompile Include="test\example.ts">
       <TestFramework>Mocha</TestFramework>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Middlewares\validateRequest.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces\" />
     <Folder Include="Models\" />
     <Folder Include="Config\" />
+    <Folder Include="Middlewares\" />
     <Folder Include="Scripts\typings\config\" />
+    <Folder Include="Scripts\typings\lodash\" />
     <Folder Include="Scripts\typings\should\" />
     <Folder Include="Scripts\typings\winston\" />
     <Folder Include="test\" />

@@ -12,3 +12,5 @@
 /// <reference path="should/should.d.ts" />
 /// <reference path="winston/winston.d.ts" />
 /// <reference path="config/config.d.ts" />
+/// <reference path="lodash/lodash.d.ts" />
+/// <reference path="jwt-simple/jwt-simple.d.ts" />

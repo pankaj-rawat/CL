@@ -1,8 +1,8 @@
-﻿import {UserModel} from "../Models/userModel";
+﻿import * as model from "../Models/userModel";
+
 export interface IUserRepository {
-    find(id: number): UserModel;
-    create(user: UserModel): number;
-    update(user: UserModel): UserModel;
-   remove(id: number): number;
-   getAll(): UserModel[];
+    find(id: number,res:(res:model.UserModel)=>void): void;
+    create(user:model.UserModel,res:(res:model.UserModel)=>void): void;
+    update(user:model.UserModel,res:(res:model.UserModel)=>void): void;
+    remove(id:number, res: (res: model.UserModel) => void): void;
 }

@@ -24,5 +24,8 @@
   },
   "server": {
     "port": 1337
+  },
+  "token": {
+    "key": "sss.sss.sss.ssh"
   }
 }

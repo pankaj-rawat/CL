@@ -1,5 +1,11 @@
 ﻿export interface UserModel{
-    salutation:string;
-    name: string;
-    age: number;
+    id?:number;
+    email: string;
+    password: number;
+    phoneLanLine?: number;
+    phoneCell?: number;   
+    idStatus: number;
+    idCity: number;
+    createdOn?: Date;
+    lastupdateOn?: Date;
 }
