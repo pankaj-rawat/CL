@@ -20,12 +20,12 @@
     <OutputPath>.</OutputPath>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
-    <ProjectView>ShowAllFiles</ProjectView>
+    <ProjectView>ProjectFiles</ProjectView>
     <NodejsPort>1337</NodejsPort>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
     <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
     <EnableTypeScript>true</EnableTypeScript>
-    <StartWebBrowser>true</StartWebBrowser>
+    <StartWebBrowser>True</StartWebBrowser>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +43,17 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <DebugSymbols>true</DebugSymbols>
+    <TypeScriptTarget>ES6</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Config\production.json" />
@@ -56,6 +67,7 @@
     <TypeScriptCompile Include="Interfaces\ICityStateCountryRepository.ts" />
     <TypeScriptCompile Include="Interfaces\IUserRepository.ts" />
     <TypeScriptCompile Include="logger.ts" />
+    <TypeScriptCompile Include="Models\authModel.ts" />
     <TypeScriptCompile Include="Models\citystatecountryModel.ts" />
     <TypeScriptCompile Include="Models\userModel.ts" />
     <TypeScriptCompile Include="Repositories\authRepository.ts" />
@@ -73,6 +85,7 @@
     <TypeScriptCompile Include="Scripts\typings\config\config.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\express-serve-static-core\express-serve-static-core.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\express\express.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jwt-simple\jwt-simple.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\lodash\lodash.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\mime\mime.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\mocha\mocha.d.ts" />
@@ -101,6 +114,7 @@
     <Folder Include="Config\" />
     <Folder Include="Middlewares\" />
     <Folder Include="Scripts\typings\config\" />
+    <Folder Include="Scripts\typings\jwt-simple\" />
     <Folder Include="Scripts\typings\lodash\" />
     <Folder Include="Scripts\typings\should\" />
     <Folder Include="Scripts\typings\winston\" />

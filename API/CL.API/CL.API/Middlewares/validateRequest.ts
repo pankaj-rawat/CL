@@ -1,13 +1,21 @@
-﻿import jwt = require('jwt-simple');
-import * as authRepository from "../Repositories/authRepository";
+﻿import ld = require('lodash');
+import jwt = require('jwt-simple');
+import {authRepository} from "../Repositories/authRepository";
 import config = require('config');
+import *  as model from "../Models/authModel";
 
 module.exports = function (req, res, next) {
     // When performing a cross domain request, you will recieve
-    // a preflighted request first. This is to check if our the app
+    // a preflighted request first. This is to check if the app
     // is safe. 
     // We skip the token outh for [OPTIONS] requests.
     //if(req.method == 'OPTIONS') next();
+
+    var httpStatus_BADREQUEST = 400;
+    var httpStatus_FORBIDDEN = 403;
+    var httpStatus_UNAUTHORIZED = 401;
+    var httpStatus_INTERNALSERVERERROR = 500;
+
     var token = (req.body && req.body.access_token) || (req.query && req.query.access_token) || req.headers['x-access-token'];
     var key = (req.body && req.body.x_key) || (req.query && req.query.x_key) || req.headers['x-key'];
 
@@ -15,48 +23,52 @@ module.exports = function (req, res, next) {
         try {
             var decoded = jwt.decode(token, String(config.get("token.key")));
             if (decoded.exp <= Date.now()) {
-                res.status(400);
+                res.status(httpStatus_BADREQUEST);
                 res.json({
-                    "status": 400,
+                    "status": httpStatus_BADREQUEST,
                     "message": "Token Expired"
                 });
                 return;
             }
-            // Authorize the user to see if s/he can access our resources
-            var x = new authRepository();
-            var dbUser = x.validateUser(key); // The key would be the logged in user's username
-            if (dbUser) {
-                if ((req.url.indexOf('admin') >= 0 && dbUser.role == 'admin') || (req.url.indexOf('admin') < 0 && req.url.indexOf('/api/v1/') >= 0)) {
-                    next(); // To move to next middleware
+            var authRepo = new authRepository();
+            // The key would be the logged in user's username
+            authRepo.validateUser(key, function (authUser) {
+                if (authUser) {
+                    if ((req.url.indexOf('admin') >= 0 && ld.includes(authUser.roles, 'admin'))
+                        || (req.url.indexOf('admin') < 0 && req.url.indexOf('/api/v1/') >= 0)) {
+                        next(); // To move to next middleware
+                    } else {
+                        res.status(httpStatus_FORBIDDEN);
+                        res.json({
+                            "status": httpStatus_FORBIDDEN,
+                            "message": "Not Authorized"
+                        });
+                        return;
+                    }
                 } else {
-                    res.status(403);
+                    // No user with this name exists, respond back with a 401
+                    res.status(httpStatus_UNAUTHORIZED);
                     res.json({
-                        "status": 403,
-                        "message": "Not Authorized"
+                        "status": httpStatus_UNAUTHORIZED,
+                        "message": "Invalid User"
                     });
                     return;
                 }
-            } else {
-                // No user with this name exists, respond back with a 401
-                res.status(401);
-                res.json({
-                    "status": 401,
-                    "message": "Invalid User"
-                });
-                return;
-            }
+
+            });
+
         } catch (err) {
-            res.status(500);
+            res.status(httpStatus_INTERNALSERVERERROR);
             res.json({
-                "status": 500,
+                "status": httpStatus_INTERNALSERVERERROR,
                 "message": "Oops something went wrong",
                 "error": err
             });
         }
     } else {
-        res.status(401);
+        res.status(httpStatus_UNAUTHORIZED);
         res.json({
-            "status": 401,
+            "status": httpStatus_UNAUTHORIZED,
             "message": "Invalid Token or Key"
         });
         return;

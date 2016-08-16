@@ -1,6 +1,5 @@
 ﻿import * as irepo from "../Interfaces/ICityStateCountryRepository";
 import * as model from "../Models/citystatecountryModel";
-import clResponse = require('../clresponse');
 import * as db from "../db";
 import {Logger}  from "../logger";
 

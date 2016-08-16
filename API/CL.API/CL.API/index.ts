@@ -2,7 +2,6 @@
 import config = require('config');
 import {Logger}  from "./logger";
 
-
 //make 'production' for production here or set the environment variable.
 var environment = process.env.NODE_ENV || 'dev';
 var server = require("./server");

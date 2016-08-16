@@ -9,8 +9,7 @@ module.exports = function (app) {
     var routeDir = __dirname + '/routes';
     Logger.log.info('routes folder:' + routeDir);
     // create route for authentication, 
-
-
+    
     fs.readdirSync(routeDir).forEach(function (file) {
         //exclude .ts and .map in dev env.
         if (!fs.lstatSync(routeDir + '/' + file).isDirectory()
@@ -20,7 +19,12 @@ module.exports = function (app) {
             let route = '';
             if (ld.includes(publicRoutes, file)) {
                 //public route
-                route = '/clapi/' + basename;
+                if (basename === 'auth') {
+                    route = '/clapi/'; // will be handled from controller/route
+                }
+                else {
+                    route = '/clapi/' + basename;
+                }
             }
             else {
                 //secured route, required authentication               
