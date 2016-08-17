@@ -8,7 +8,7 @@ import * as model  from "../Models/authModel";
 export class authRepository implements irepo.IAuthRepository {
 
     login(username: string, password: string, res: (auth: model.AuthModel) => void): void {
-        var auth: model.AuthModel;
+        let auth: model.AuthModel;
 
         if (password.trim() == '') //no need to go to db
         {
@@ -17,7 +17,7 @@ export class authRepository implements irepo.IAuthRepository {
             res(auth);
         }
         else {
-            var authUser = validate(username, password);
+            let authUser = validate(username, password);
             if (authUser!=null) {
                 auth = genToken(authUser);
             }
@@ -26,7 +26,7 @@ export class authRepository implements irepo.IAuthRepository {
     }
 
     validateUser(username: string, res: (auth: model.AuthUsermodel) => void): void {
-        var dbUserObj: model.AuthUsermodel = { // spoofing a userobject from the DB. 
+        let dbUserObj: model.AuthUsermodel = { // spoofing a userobject from the DB. 
             roles: ['admin'],
             userName: 'prawat@myapp.com',
             name: 'Pankaj'
@@ -36,7 +36,7 @@ export class authRepository implements irepo.IAuthRepository {
 }
 
 function validate(username: string, password: string): model.AuthUsermodel {
-    var dbUserObj: model.AuthUsermodel = { // spoofing a userobject from the DB. 
+    let dbUserObj: model.AuthUsermodel = { // spoofing a userobject from the DB. 
         roles: ['admin'],
         userName: 'prawat@myapp.com',
         name: 'Pankaj'
@@ -45,8 +45,8 @@ function validate(username: string, password: string): model.AuthUsermodel {
 }
 // private method
 function genToken(user: model.AuthUsermodel): model.AuthModel {
-    var expires = expiresIn(7); // 7 days
-    var token = jwt.encode({
+    let expires = expiresIn(7); // 7 days
+    let token = jwt.encode({
         exp: expires
     }, String(config.get("token.key")));
 
@@ -57,6 +57,6 @@ function genToken(user: model.AuthUsermodel): model.AuthModel {
     };
 }
 function expiresIn(numDays) {
-    var dateObj = new Date();
+    let dateObj = new Date();
     return dateObj.setDate(dateObj.getDate() + numDays);
 }

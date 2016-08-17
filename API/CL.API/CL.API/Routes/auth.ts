@@ -7,11 +7,11 @@ import {Logger}  from "../logger";
 var authController = express.Router();
 authController.post('/login', function (req, res) {
     Logger.log.info('login requested: ' + req);
-    var clRes: clResponse;
-    var authrepo = new authRepository();
+    let clRes: clResponse;
+    let authrepo = new authRepository();
     try {        
-        var username= req.body.username;
-        var password= req.body.password;
+        let username= req.body.username;
+        let password= req.body.password;
         authrepo.login(username,password, function (result:model.AuthModel) {
             clRes = { data: result, isValid: true };
             res.send(clRes);

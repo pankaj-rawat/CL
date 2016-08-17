@@ -5,10 +5,10 @@ var express = require('express');
 var countryController = express.Router();
 
 countryController.get('/:id', function (req, res) {
-    var cscrepo = new countryRepository();
-    var clRes: clResponse; 
+    let cscrepo = new countryRepository();
+    let clRes: clResponse; 
     try {
-        var id = req.params.id;
+        let id = req.params.id;
         cscrepo.find(id, function (result) {
             clRes = { data: result, isValid: true };
             res.send(clRes);
@@ -21,8 +21,8 @@ countryController.get('/:id', function (req, res) {
 });
 
 countryController.get('/', function (req, res) {
-    var cscrepo = new countryRepository();
-    var clRes: clResponse;
+    let cscrepo = new countryRepository();
+    let clRes: clResponse;
     try {
           cscrepo.getAll(function (result) {
             clRes = { data: result, isValid: true };

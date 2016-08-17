@@ -13,17 +13,17 @@ export class RequestValidator {
         // We skip the token outh for [OPTIONS] requests.
         //if(req.method == 'OPTIONS') next();
 
-        var httpStatus_BADREQUEST = 400;
-        var httpStatus_FORBIDDEN = 403;
-        var httpStatus_UNAUTHORIZED = 401;
-        var httpStatus_INTERNALSERVERERROR = 500;
+        let httpStatus_BADREQUEST = 400;
+        let httpStatus_FORBIDDEN = 403;
+        let httpStatus_UNAUTHORIZED = 401;
+        let httpStatus_INTERNALSERVERERROR = 500;
 
-        var token = (req.body && req.body.access_token) || (req.query && req.query.access_token) || req.headers['x-access-token'];
-        var key = (req.body && req.body.x_key) || (req.query && req.query.x_key) || req.headers['x-key'];
+        let token = (req.body && req.body.access_token) || (req.query && req.query.access_token) || req.headers['x-access-token'];
+        let key = (req.body && req.body.x_key) || (req.query && req.query.x_key) || req.headers['x-key'];
 
         if (token || key) {
             try {
-                var decoded = jwt.decode(token, String(config.get("token.key")));
+                let decoded = jwt.decode(token, String(config.get("token.key")));
                 if (decoded.exp <= Date.now()) {
                     res.status(httpStatus_BADREQUEST);
                     res.json({
@@ -32,7 +32,7 @@ export class RequestValidator {
                     });
                     return;
                 }
-                var authRepo = new authRepository();
+                let authRepo = new authRepository();
                 // The key would be the logged in user's username
                 authRepo.validateUser(key, function (authUser) {
                     if (authUser) {

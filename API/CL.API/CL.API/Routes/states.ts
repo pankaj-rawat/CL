@@ -5,9 +5,9 @@ var express = require('express');
 var stateController = express.Router();
 
 stateController.get('/:id', function (req, res):void {
-    var clRes: clResponse;   
-    var stateRepo = new stateRepository();
-    var id = req.params.id;
+    let clRes: clResponse;   
+    let stateRepo = new stateRepository();
+    let id = req.params.id;
     try {
         stateRepo.find(id, function (result) {
             clRes = { data: result, isValid: true };
@@ -21,8 +21,8 @@ stateController.get('/:id', function (req, res):void {
 });
 
 stateController.get('/', function (req, res):void {
-    var stateRepo = new stateRepository();
-    var clRes: clResponse;   
+    let stateRepo = new stateRepository();
+    let clRes: clResponse;   
     try {
         stateRepo.getAll(function (result) {
             clRes = { data: result, isValid: true };
