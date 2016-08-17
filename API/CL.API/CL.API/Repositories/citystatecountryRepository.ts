@@ -35,7 +35,7 @@ class CityRepository implements irepo.ICityRepository {
                 var state: model.StateModel;
                 //populate state for the city
                 try {
-                    if (city != undefined) {
+                    if (city != null) {
                         var stateRepo = new StateRepository();
                         stateRepo.find(city.id, function (state) {
                             city.state = state;
@@ -67,7 +67,7 @@ class CityRepository implements irepo.ICityRepository {
         query.on('result', function (row, result) {
             var state: model.StateModel;
             //populate state for the city
-            if (row.id != undefined) {
+            if (row.id != null) {
                 var stateRepo = new StateRepository();
                 stateRepo.find(row.id, function (statRes) {
                     this.state = statRes;
@@ -122,7 +122,7 @@ class StateRepository implements irepo.IStateRepository {
                 query.on('end', function (result) {
                     connection.release();
                     var ctr: model.CountryModel;
-                    if (state != undefined) {
+                    if (state != null) {
                         var countryRepo = new CountryRepository();
                         countryRepo.find(state.id, function (ctr) {
                             state.country = ctr;

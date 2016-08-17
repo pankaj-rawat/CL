@@ -74,7 +74,7 @@
     <TypeScriptCompile Include="Repositories\citystatecountryRepository.ts" />
     <TypeScriptCompile Include="clresponse.ts" />
     <TypeScriptCompile Include="Repositories\userRepository.ts" />
-    <TypeScriptCompile Include="router.ts" />
+    <TypeScriptCompile Include="routeBuilder.ts" />
     <TypeScriptCompile Include="Routes\auth.ts" />
     <TypeScriptCompile Include="Routes\cities.ts" />
     <TypeScriptCompile Include="Routes\countries.ts" />
@@ -106,7 +106,7 @@
     <TypeScriptCompile Include="test\example.ts">
       <TestFramework>Mocha</TestFramework>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="Middlewares\validateRequest.ts" />
+    <TypeScriptCompile Include="Middlewares\requestValidator.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces\" />
