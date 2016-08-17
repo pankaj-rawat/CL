@@ -18,7 +18,7 @@ export class authRepository implements irepo.IAuthRepository {
         }
         else {
             var authUser = validate(username, password);
-            if (!authUser) {
+            if (authUser!=null) {
                 auth = genToken(authUser);
             }
             res(auth);
@@ -45,7 +45,7 @@ function validate(username: string, password: string): model.AuthUsermodel {
 }
 // private method
 function genToken(user: model.AuthUsermodel): model.AuthModel {
-    var expires = this.expiresIn(7); // 7 days
+    var expires = expiresIn(7); // 7 days
     var token = jwt.encode({
         exp: expires
     }, String(config.get("token.key")));

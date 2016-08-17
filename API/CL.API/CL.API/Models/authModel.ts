@@ -1,6 +1,6 @@
 ﻿export interface AuthModel {
     token: string,
-    expires: Date,
+    expires: number,
     user: AuthUsermodel
 }
 

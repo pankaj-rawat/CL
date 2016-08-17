@@ -34,8 +34,8 @@ module.exports = function (req, res, next) {
             // The key would be the logged in user's username
             authRepo.validateUser(key, function (authUser) {
                 if (authUser) {
-                    if ((req.url.indexOf('admin') >= 0 && ld.includes(authUser.roles, 'admin'))
-                        || (req.url.indexOf('admin') < 0 && req.url.indexOf('/api/v1/') >= 0)) {
+                    if ((req.url.indexOf('clapis') >= 0 && ld.includes(authUser.roles, 'admin'))
+                        || (req.url.indexOf('clapis') < 0 && req.url.indexOf('clapi') >= 0)) {
                         next(); // To move to next middleware
                     } else {
                         res.status(httpStatus_FORBIDDEN);
