@@ -12,11 +12,11 @@ export class RequestValidator {
         // is safe. 
         // We skip the token outh for [OPTIONS] requests.
         //if(req.method == 'OPTIONS') next();
-
-        let httpStatus_BADREQUEST = 400;
-        let httpStatus_FORBIDDEN = 403;
-        let httpStatus_UNAUTHORIZED = 401;
-        let httpStatus_INTERNALSERVERERROR = 500;
+        
+        const httpStatus_BADREQUEST = 400;
+        const httpStatus_FORBIDDEN = 403;
+        const httpStatus_UNAUTHORIZED = 401;
+        const httpStatus_INTERNALSERVERERROR = 500;
 
         let token = (req.body && req.body.access_token) || (req.query && req.query.access_token) || req.headers['x-access-token'];
         let key = (req.body && req.body.x_key) || (req.query && req.query.x_key) || req.headers['x-key'];

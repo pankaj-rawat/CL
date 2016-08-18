@@ -1,8 +1,10 @@
 ﻿import * as model from "../Models/userModel";
 
 export interface IUserRepository {
-    find(id: number,res:(res:model.UserModel)=>void): void;
-    create(user:model.UserModel,res:(res:model.UserModel)=>void): void;
-    update(user:model.UserModel,res:(res:model.UserModel)=>void): void;
-    remove(id:number, res: (res: model.UserModel) => void): void;
+    find(id: number): Promise<model.UserModel>;    
+    getAllByCity(cityId: number): Promise<model.UserModel[]>;    
+    getAllByState(stateId: number): Promise<model.UserModel[]>;    
+    create(user:model.UserModel): Promise<model.UserModel>;
+    update(user: model.UserModel):Promise<model.UserModel>;
+    remove(id:number): Promise<number>;
 }
