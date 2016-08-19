@@ -2,9 +2,9 @@
     id?:number;
     email: string;
     password?: number;
-    phoneLanLine?: number;
+    phoneLandLine?: number;
     phoneCell?: number;   
-    idStatus: number;
+    idStatus?: number;
     idCity: number;
     createdOn?: Date;
     lastupdatedOn?: Date;

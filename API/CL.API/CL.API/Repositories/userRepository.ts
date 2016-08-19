@@ -4,6 +4,7 @@ import * as db from "../db";
 import {Logger}  from "../logger";
 
 class UserRepository implements irepo.IUserRepository {
+    repoName: string = 'UserRepository';
 
     find(id: number): Promise<model.UserModel> {
         return new Promise(function (resolve, reject) {
@@ -11,26 +12,25 @@ class UserRepository implements irepo.IUserRepository {
                 try {
                     db.get().getConnection(function (err, connection) {
                         if (err != null) {
-                            Logger.log.info('Error occured in UserRepository - find - id:' + id + '  Error:' + err);
+                            Logger.log.info('Error occured in ' + this.repoName + ' - find - id:' + id + '  Error:' + err);
                             reject(err);
                         }
                         else {
                             let query = connection.query('SELECT * FROM user WHERE id = ?', id);
-
                             query.on('error', function (err) {
-                                Logger.log.info('Error occured in UserRepository - find - id:' + id + '  Error:' + err);
+                                Logger.log.info('Error occured in ' + this.repoName + ' - find - id:' + id + '  Error:' + err);
                                 reject(err);
                             });
 
-                            query.on('fields', function (fields) {
-                                Logger.log.info('Error occured in UserRepository - find - id:' + id + '  Error:' + err);
-                            });
+                            //query.on('fields', function (fields) {
+                            //    Logger.log.info('Error occured in UserRepository - find - id:' + id + '  Error:' + err);
+                            //});
 
                             query.on('result', function (row, result: model.UserModel) {
                                 result = {
                                     id: row.Id,
                                     email: row.email,
-                                    phoneLanLine: row.phoneLandLine,
+                                    phoneLandLine: row.phoneLandLine,
                                     phoneCell: row.phoneCell,
                                     idStatus: row.idStatus,
                                     idCity: row.idCity,
@@ -60,28 +60,31 @@ class UserRepository implements irepo.IUserRepository {
 
     create(user: model.UserModel): Promise<model.UserModel> {
         return new Promise(function (resolve, reject) {
-            let user: model.UserModel;
             db.get().getConnection(function (err, connection) {
                 if (err != null) {
-                    Logger.log.info('Error occured in CityRepository - find - id:' + id + '  Error:' + err);
+                    Logger.log.info('Error occured in ' + this.repoName + ' - Signup - user:' + user.email + '  Error:' + err);
                     reject(err);
                 }
                 else {
-                    let query = connection.query('SELECT * FROM user WHERE id = ?', id);
+                    let query = connection.query('CALL sp_user_insert(?,?,?,?,?,?)',
+                        [user.email, user.password, user.phoneLandLine, user.phoneCell, user.idCity, user.subscriptionOptIn]);
 
                     query.on('error', function (err) {
-                        Logger.log.info('Error occured in CityRepository - find - id:' + id + '  Error:' + err);
+                        Logger.log.info('Error occured in ' + this.repoName + ' - Create -' + user.email + '  Error:' + err);
                         reject(err);
                     });
-
-                    query.on('fields', function (fields) {
-                        Logger.log.info('Error occured in CityRepository - find - id:' + id + '  Error:' + err);
-                    });
-
-                    query.on('result', function (row, result) {
+                    query.on('result', function (row) {
+                        //to exclude OkPacket
+                        if (row.id != null) {
+                            user.createdOn = row.createdOn;
+                            user.id = row.id;
+                            user.idStatus = row.idStatus;
+                        }
                     });
 
                     query.on('end', function (result) {
+                        resolve(user);
+                        connection.release();
                     });
                 }
             });

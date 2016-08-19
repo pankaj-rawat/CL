@@ -11,26 +11,50 @@ userController.get('/:id', function (req, res) {
     let clres: clResponse;
     userP = userRepo.find(req.params.id);
     userP.then(function (user: model.UserModel) {
-        clres = {            
-            data:user,
-            isValid:true
+        clres = {
+            data: user,
+            isValid: true
         };
         res.send(clres);
     });
 
     userP.catch(function (err) {
         clres = {
-            isValid:false,
+            isValid: false,
             message: err.message
         };
         res.send(clres);
     });
 });
 
-//userController.get('/', function (req, res) {
-//    var usrepo = new userrepo.userrepository();
-//    var u = usrepo.getAll();
-//    res.send(u)
-//});
+userController.post('/', function (req, res) {
+    let usrepo = new userrepository();
+    let userP: Promise<model.UserModel>;
+    let user: model.UserModel;
+    let clres: clResponse;
+    user = {
+        email: req.body.email,
+        idCity: req.body.idCity,
+        password: req.body.password,
+        phoneLandLine: req.body.phoneLandline,
+        phoneCell: req.body.phoneCell,
+        subscriptionOptIn: req.body.subscriptionOptIn
+    }
+    userP = usrepo.create(user);
+    userP.then(function (user: model.UserModel) {
+        clres = {
+            data: user,
+            isValid: true
+        };
+        res.send(clres);
+    });
+    userP.catch(function (err) {
+        clres = {
+            isValid: false,
+            message: err.mssage
+        };
+        res.send(clres);
+    });
+});
 
 module.exports = userController;

@@ -11,7 +11,7 @@ var validateRequest = new RequestValidator();
 // configure app to use bodyParser()
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.all('/clapis/*', validateRequest.Validate);
+app.all('/api/*', validateRequest.Validate);
 //load router
 router.build(app);
 process.on('unhandledRejection', (reason,p) => {
