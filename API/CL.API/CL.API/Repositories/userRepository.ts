@@ -35,7 +35,10 @@ class UserRepository implements irepo.IUserRepository {
                                     idStatus: row.idStatus,
                                     idCity: row.idCity,
                                     createdOn: row.createdOn,
-                                    lastupdatedOn: row.lastupdatedOn
+                                    lastupdatedOn: row.lastupdatedOn,
+                                    subscriptionOptIn: row.subscriptionOptIn,
+                                    subscriptionOptInDate: row.subscriptionOptInDate,
+                                    subscriptionOptOutDate: row.subscriptionOptOutDate
                                 };
                             });
 
@@ -59,28 +62,28 @@ class UserRepository implements irepo.IUserRepository {
         return new Promise(function (resolve, reject) {
             let user: model.UserModel;
             db.get().getConnection(function (err, connection) {
-                //if (err != null) {
-                //    Logger.log.info('Error occured in CityRepository - find - id:' + id + '  Error:' + err);
-                //    reject(err);
-                //}
-                //else {
-                //    let query = connection.query('SELECT * FROM user WHERE id = ?', id);
+                if (err != null) {
+                    Logger.log.info('Error occured in CityRepository - find - id:' + id + '  Error:' + err);
+                    reject(err);
+                }
+                else {
+                    let query = connection.query('SELECT * FROM user WHERE id = ?', id);
 
-                //    query.on('error', function (err) {
-                //        Logger.log.info('Error occured in CityRepository - find - id:' + id + '  Error:' + err);
-                //        reject(err);
-                //    });
+                    query.on('error', function (err) {
+                        Logger.log.info('Error occured in CityRepository - find - id:' + id + '  Error:' + err);
+                        reject(err);
+                    });
 
-                //    query.on('fields', function (fields) {
-                //        Logger.log.info('Error occured in CityRepository - find - id:' + id + '  Error:' + err);
-                //    });
+                    query.on('fields', function (fields) {
+                        Logger.log.info('Error occured in CityRepository - find - id:' + id + '  Error:' + err);
+                    });
 
-                //    query.on('result', function (row, result) {
-                //    });
+                    query.on('result', function (row, result) {
+                    });
 
-                //    query.on('end', function (result) {
-                //    });
-                //}
+                    query.on('end', function (result) {
+                    });
+                }
             });
         });
     }

@@ -8,4 +8,7 @@
     idCity: number;
     createdOn?: Date;
     lastupdatedOn?: Date;
+    subscriptionOptIn: boolean;
+    subscriptionOptInDate?: Date;
+    subscriptionOptOutDate?: Date;
 }

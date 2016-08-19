@@ -21,3 +21,4 @@ INSERT INTO role(id,value) VALUES(1,'guest');
 INSERT INTO role(id,value) VALUES(2,'admin');
 INSERT INTO role(id,value) VALUES(3,'bussinessowner');
 INSERT INTO role(id,value) VALUES(4,'registereduser');
+
