@@ -1,7 +1,7 @@
 ﻿export interface UserModel{
     id?:number;
     email: string;
-    password?: number;
+    password?: string;
     phoneLandLine?: number;
     phoneCell?: number;   
     idStatus?: number;

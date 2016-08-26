@@ -14,3 +14,4 @@
 /// <reference path="config/config.d.ts" />
 /// <reference path="lodash/lodash.d.ts" />
 /// <reference path="jwt-simple/jwt-simple.d.ts" />
+/// <reference path="bcryptjs/bcryptjs.d.ts" />

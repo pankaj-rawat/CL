@@ -11,9 +11,14 @@ authController.post('/login', function (req, res) {
     let authrepo = new authRepository();
     try {        
         let username= req.body.username;
-        let password= req.body.password;
-        authrepo.login(username,password, function (result:model.AuthModel) {
+        let password = req.body.password;
+        let response: Promise<model.AuthModel> = authrepo.login(username, password);
+        response.then(function (result:model.AuthModel) {
             clRes = { data: result, isValid: true };
+            res.send(clRes);
+        });
+        response.catch(function (error) {
+            clRes = { message: error.message, isValid: false }
             res.send(clRes);
         });
     }

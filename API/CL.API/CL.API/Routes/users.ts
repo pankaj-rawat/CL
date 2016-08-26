@@ -1,6 +1,7 @@
 ﻿import {userrepository} from  "../Repositories/userrepository";
 import {clResponse} from "../clresponse";
 import model = require('../Models/userModel');
+import bcrypt = require('bcryptjs');
 
 var express = require('express');
 var userController = express.Router();
@@ -32,17 +33,22 @@ userController.post('/', function (req, res) {
     let userP: Promise<model.UserModel>;
     let user: model.UserModel;
     let clres: clResponse;
+
+    let salt = bcrypt.genSaltSync(10);
+    let hashedP:string = bcrypt.hashSync(req.body.password, salt);
+
     user = {
         email: req.body.email,
         idCity: req.body.idCity,
-        password: req.body.password,
+        password: hashedP,
         phoneLandLine: req.body.phoneLandline,
         phoneCell: req.body.phoneCell,
         subscriptionOptIn: req.body.subscriptionOptIn
     }
     userP = usrepo.create(user);
     userP.then(function (user: model.UserModel) {
-        clres = {
+        user.password = undefined;// clear pwd before sending back the result
+        clres = {            
             data: user,
             isValid: true
         };
@@ -51,7 +57,7 @@ userController.post('/', function (req, res) {
     userP.catch(function (err) {
         clres = {
             isValid: false,
-            message: err.mssage
+            message: err.message
         };
         res.send(clres);
     });

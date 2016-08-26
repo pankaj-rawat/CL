@@ -81,6 +81,7 @@
     <TypeScriptCompile Include="Routes\states.ts" />
     <TypeScriptCompile Include="Routes\users.ts" />
     <TypeScriptCompile Include="Scripts\typings\async\async.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\bcryptjs\bcryptjs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\body-parser\body-parser.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\config\config.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\express-serve-static-core\express-serve-static-core.d.ts" />
@@ -113,6 +114,7 @@
     <Folder Include="Models\" />
     <Folder Include="Config\" />
     <Folder Include="Middlewares\" />
+    <Folder Include="Scripts\typings\bcryptjs\" />
     <Folder Include="Scripts\typings\config\" />
     <Folder Include="Scripts\typings\jwt-simple\" />
     <Folder Include="Scripts\typings\lodash\" />

@@ -17,4 +17,7 @@ router.build(app);
 process.on('unhandledRejection', (reason,p) => {
     Logger.log.error(reason);
 });
+process.on('uncaughtException', (reason, p) => {
+    Logger.log.error(reason);
+});
 module.exports = app;
