@@ -9,10 +9,15 @@ countryController.get('/:id', function (req, res) {
     let clRes: clResponse; 
     try {
         let id = req.params.id;
-        cscrepo.find(id, function (result) {
-            clRes = { data: result, isValid: true };
-            res.send(clRes);
-        });
+        cscrepo.find(id)
+            .then(function (result) {
+                clRes = { data: result, isValid: true };
+                res.send(clRes);
+            })
+            .catch(function (err) {
+                clRes = { message: err.message, isValid: false };
+                res.send(clRes);
+            });
     }
     catch (Error) {
         clRes = { message: Error.message, isValid: false };
@@ -24,10 +29,15 @@ countryController.get('/', function (req, res) {
     let cscrepo = new countryRepository();
     let clRes: clResponse;
     try {
-          cscrepo.getAll(function (result) {
-            clRes = { data: result, isValid: true };
-            res.send(clRes);
-        });
+        cscrepo.getAll()
+            .then(function (result) {
+                clRes = { data: result, isValid: true };
+                res.send(clRes);
+            })
+            .catch(function (err) {
+                clRes = { message: err.message, isValid: false };
+                res.send(clRes);
+            });
     }
     catch (Error) {
         clRes = { message: Error.message, isValid: false };

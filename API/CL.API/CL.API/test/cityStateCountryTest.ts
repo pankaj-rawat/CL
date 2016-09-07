@@ -17,7 +17,7 @@ describe("SAMPLE unit test", function () {
         server
             .get("/cities/10")
             .expect("Content-type", /json/)
-            .expect(200) // THis is HTTP response
+            .expect(200) // This is HTTP response
             .end(function (err, res) {
                 res.status.should.equal(200);
                should(res.body.data).equal(undefined).not.be.ok;

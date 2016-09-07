@@ -1,15 +1,15 @@
 ﻿import * as model from "../Models/citystatecountryModel";
 
 export interface ICountryRepository {
-    find(id: number, res: (res: model.CountryModel)=>void):void;
-    getAll(res: (res: model.CountryModel[]) => void):void;
+    find(id: number): Promise<model.CountryModel>;
+    getAll(): Promise<Array<model.CountryModel>>;
 }
 
 export interface ICityRepository {
-    find(id: number, res: (res: model.CityModel) => void):void;
-    getAll(res: (res: model.CityModel[]) => void): void;
+    find(id: number):Promise<model.CityModel>;
+    getAll(): Promise<Array<model.CityModel>>;
 }
 export interface IStateRepository {
-    find(id: number, res: (res: model.StateModel) => void): void;
-    getAll(res: (res: model.StateModel[]) => void):void;
+    find(id: number): Promise<model.StateModel>;
+    getAll(): Promise<Array<model.StateModel>>;
     }

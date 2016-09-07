@@ -6,5 +6,5 @@
 
 export interface AuthUsermodel {
     userName: string,
-    roles: string[]
+    roles: Array<string>
 }

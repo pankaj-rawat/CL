@@ -5,7 +5,6 @@ import {Logger}  from "../logger";
 
 class UserRepository implements irepo.IUserRepository {
     repoName: string = 'UserRepository';
-
     find(id: number): Promise<model.UserModel> {
         return new Promise(function (resolve, reject) {
             if (id != null) {

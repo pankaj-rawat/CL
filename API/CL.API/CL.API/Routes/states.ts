@@ -9,13 +9,18 @@ stateController.get('/:id', function (req, res):void {
     let stateRepo = new stateRepository();
     let id = req.params.id;
     try {
-        stateRepo.find(id, function (result) {
-            clRes = { data: result, isValid: true };
-            res.send(clRes);
-        });
+        stateRepo.find(id)
+            .then(function (result) {
+                clRes = { data: result, isValid: true };
+                res.send(clRes);
+            })
+            .catch(function (err) {
+                clRes = { message: err.meassage, isValid: false };
+                res.send(clRes);
+            });
     }
     catch (Error) {
-        clRes = { message: Error.meassaage, isValid: false };
+        clRes = { message: Error.meassage, isValid: false };
         res.send(clRes);
     }    
 });
@@ -24,13 +29,18 @@ stateController.get('/', function (req, res):void {
     let stateRepo = new stateRepository();
     let clRes: clResponse;   
     try {
-        stateRepo.getAll(function (result) {
-            clRes = { data: result, isValid: true };
-            res.send(clRes);
-        });
+        stateRepo.getAll()
+            .then(function (result) {
+                clRes = { data: result, isValid: true };
+                res.send(clRes);
+            })
+            .catch(function (err) {
+                clRes = { message: err.message, isValid: false };
+                res.send(clRes);
+            });
     }
     catch (Error) {
-        clRes = { message: Error.meassaage, isValid: false };
+        clRes = { message: Error.message, isValid: false };
         res.send(clRes);
     }    
 });
