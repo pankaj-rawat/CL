@@ -1,0 +1,58 @@
+  public class Program
+    {
+        public static void Main()
+        {
+            HtmlDocument doc = new HtmlDocument();
+            doc.Load(@"C:\Users\prawat\Desktop\check\mobile.html");
+            var resultli = doc.DocumentNode.SelectNodes(" //li[contains(concat(' ', normalize-space(@class), ' '), 'cntanr')]");
+            int i = 1;
+            foreach (HtmlNode r in resultli)
+            {
+                Console.WriteLine("Sr no." + i.ToString());
+                var result = r.SelectSingleNode(".//h4[contains(concat(' ', normalize-space(@class), ' '), 'store-name')]");
+                var resultContact = r.SelectSingleNode(".//p[contains(concat(' ', normalize-space(@class), ' '), 'contact-info')]");
+                var resultAddress = r.SelectSingleNode(".//span[contains(concat(' ', normalize-space(@class), ' '), 'mrehover dn')]");
+                var resultCategory = r.SelectSingleNode(".//span[contains(concat(' ', normalize-space(@class), ' '), 'margin0 addrinftxt')]");
+                
+                Console.WriteLine(result.InnerText.Replace("/r", "").Replace("/n", "").Replace("&amp;","&").Trim());
+                if (resultContact!= null)
+                {
+                    Console.WriteLine(resultContact.InnerText.Replace("/r", "").Replace("/n", "").Replace("&amp;", "&").Trim());
+                }
+                Console.WriteLine(resultAddress.InnerText.Replace("/r", "").Replace("/n", "").Replace("&amp;", "&").Trim());
+                Console.WriteLine(resultCategory.InnerText.Replace("/r", "").Replace("/n", "").Replace("&amp;", "&").Replace("&nbsp;..", "").Replace("<!-- margin0 addrinftx starts here-->", "").Trim());
+                Console.WriteLine();
+                Console.WriteLine("-------------------");
+                result = null;
+                resultAddress = null;
+                resultContact = null;
+                i++;
+            }
+            Console.ReadLine();
+        }
+
+        private void saveData()
+        {
+            MySql.Data.MySqlClient.MySqlConnection conn;
+            string myConnectionString;
+
+            myConnectionString = "server=127.0.0.1;uid=root;" +
+                "pwd=12345;database=test;";
+
+            try
+            {
+                conn = new MySql.Data.MySqlClient.MySqlConnection();
+                conn.ConnectionString = myConnectionString;
+                string sql = "";
+                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql);
+                conn.Open();
+                cmd.Connection = conn;
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+    }

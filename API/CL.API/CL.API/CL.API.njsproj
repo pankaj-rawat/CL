@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>CL.API</Name>
+    <RootNamespace>CL.API</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>ac4f7522-ab9a-4193-b8a2-df7fb48756a4</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>index.ts</StartupFile>
+    <StartWebBrowser>True</StartWebBrowser>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <ProjectView>ProjectFiles</ProjectView>
+    <NodejsPort>1337</NodejsPort>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <EnableTypeScript>true</EnableTypeScript>
+    <StartWebBrowser>True</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptTarget>ES6</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptTarget>ES6</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Config\production.json" />
+    <Content Include="Config\default.json" />
+    <Content Include="Scripts\tsd.json" />
+    <Content Include="test\mocha.opts" />
+    <Content Include="web.config" />
+    <TypeScriptCompile Include="db.ts" />
+    <TypeScriptCompile Include="index.ts" />
+    <TypeScriptCompile Include="Interfaces\IAuthRepository.ts" />
+    <TypeScriptCompile Include="Interfaces\ICityStateCountryRepository.ts" />
+    <TypeScriptCompile Include="Interfaces\IUserRepository.ts" />
+    <TypeScriptCompile Include="logger.ts" />
+    <TypeScriptCompile Include="Models\authModel.ts" />
+    <TypeScriptCompile Include="Models\citystatecountryModel.ts" />
+    <TypeScriptCompile Include="Models\userModel.ts" />
+    <TypeScriptCompile Include="Repositories\authRepository.ts" />
+    <TypeScriptCompile Include="Repositories\citystatecountryRepository.ts" />
+    <TypeScriptCompile Include="clresponse.ts" />
+    <TypeScriptCompile Include="Repositories\userRepository.ts" />
+    <TypeScriptCompile Include="routeBuilder.ts" />
+    <TypeScriptCompile Include="Routes\auth.ts" />
+    <TypeScriptCompile Include="Routes\cities.ts" />
+    <TypeScriptCompile Include="Routes\countries.ts" />
+    <TypeScriptCompile Include="Routes\states.ts" />
+    <TypeScriptCompile Include="Routes\users.ts" />
+    <TypeScriptCompile Include="Scripts\typings\async\async.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\bcryptjs\bcryptjs.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\body-parser\body-parser.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\config\config.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\express-serve-static-core\express-serve-static-core.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\express\express.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jwt-simple\jwt-simple.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\lodash\lodash.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\mime\mime.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\mocha\mocha.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\mysql\mysql.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\node\node.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\serve-static\serve-static.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\should\should.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\superagent\superagent.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\supertest\supertest.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\tsd.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\winston\winston.d.ts" />
+    <TypeScriptCompile Include="server.ts" />
+    <Content Include="package.json" />
+    <Content Include="README.md" />
+    <TypeScriptCompile Include="test\cityStateCountryTest.ts">
+      <TestFramework>mocha</TestFramework>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="test\example.ts">
+      <TestFramework>Mocha</TestFramework>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Middlewares\requestValidator.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+    <Folder Include="Models\" />
+    <Folder Include="Config\" />
+    <Folder Include="Middlewares\" />
+    <Folder Include="Scripts\typings\bcryptjs\" />
+    <Folder Include="Scripts\typings\config\" />
+    <Folder Include="Scripts\typings\jwt-simple\" />
+    <Folder Include="Scripts\typings\lodash\" />
+    <Folder Include="Scripts\typings\should\" />
+    <Folder Include="Scripts\typings\winston\" />
+    <Folder Include="test\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Routes\" />
+    <Folder Include="Scripts\" />
+    <Folder Include="Scripts\typings\" />
+    <Folder Include="Scripts\typings\async\" />
+    <Folder Include="Scripts\typings\body-parser\" />
+    <Folder Include="Scripts\typings\express-serve-static-core\" />
+    <Folder Include="Scripts\typings\express\" />
+    <Folder Include="Scripts\typings\mime\" />
+    <Folder Include="Scripts\typings\mocha\" />
+    <Folder Include="Scripts\typings\mysql\" />
+    <Folder Include="Scripts\typings\node\" />
+    <Folder Include="Scripts\typings\serve-static\" />
+    <Folder Include="Scripts\typings\superagent\" />
+    <Folder Include="Scripts\typings\supertest\" />
+  </ItemGroup>
+  <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
