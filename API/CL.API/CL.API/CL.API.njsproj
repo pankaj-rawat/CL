@@ -56,8 +56,8 @@
     <TypeScriptSourceRoot />
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Config\production.json" />
     <Content Include="Config\default.json" />
+    <Content Include="Config\production.json" />
     <Content Include="Scripts\tsd.json" />
     <Content Include="test\mocha.opts" />
     <Content Include="web.config" />
@@ -67,12 +67,13 @@
     <TypeScriptCompile Include="Interfaces\ICityStateCountryRepository.ts" />
     <TypeScriptCompile Include="Interfaces\IUserRepository.ts" />
     <TypeScriptCompile Include="logger.ts" />
+    <TypeScriptCompile Include="clresponse.ts" />
+    <TypeScriptCompile Include="Middlewares\requestValidator.ts" />
     <TypeScriptCompile Include="Models\authModel.ts" />
     <TypeScriptCompile Include="Models\citystatecountryModel.ts" />
     <TypeScriptCompile Include="Models\userModel.ts" />
     <TypeScriptCompile Include="Repositories\authRepository.ts" />
     <TypeScriptCompile Include="Repositories\citystatecountryRepository.ts" />
-    <TypeScriptCompile Include="clresponse.ts" />
     <TypeScriptCompile Include="Repositories\userRepository.ts" />
     <TypeScriptCompile Include="routeBuilder.ts" />
     <TypeScriptCompile Include="Routes\auth.ts" />
@@ -107,35 +108,34 @@
     <TypeScriptCompile Include="test\example.ts">
       <TestFramework>Mocha</TestFramework>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="Middlewares\requestValidator.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Models\" />
     <Folder Include="Config\" />
+    <Folder Include="Interfaces\" />
     <Folder Include="Middlewares\" />
-    <Folder Include="Scripts\typings\bcryptjs\" />
-    <Folder Include="Scripts\typings\config\" />
-    <Folder Include="Scripts\typings\jwt-simple\" />
-    <Folder Include="Scripts\typings\lodash\" />
-    <Folder Include="Scripts\typings\should\" />
-    <Folder Include="Scripts\typings\winston\" />
-    <Folder Include="test\" />
+    <Folder Include="Models\" />
     <Folder Include="Repositories\" />
     <Folder Include="Routes\" />
     <Folder Include="Scripts\" />
     <Folder Include="Scripts\typings\" />
     <Folder Include="Scripts\typings\async\" />
+    <Folder Include="Scripts\typings\bcryptjs\" />
     <Folder Include="Scripts\typings\body-parser\" />
+    <Folder Include="Scripts\typings\config\" />
     <Folder Include="Scripts\typings\express-serve-static-core\" />
     <Folder Include="Scripts\typings\express\" />
+    <Folder Include="Scripts\typings\jwt-simple\" />
+    <Folder Include="Scripts\typings\lodash\" />
     <Folder Include="Scripts\typings\mime\" />
     <Folder Include="Scripts\typings\mocha\" />
     <Folder Include="Scripts\typings\mysql\" />
     <Folder Include="Scripts\typings\node\" />
     <Folder Include="Scripts\typings\serve-static\" />
+    <Folder Include="Scripts\typings\should\" />
     <Folder Include="Scripts\typings\superagent\" />
     <Folder Include="Scripts\typings\supertest\" />
+    <Folder Include="Scripts\typings\winston\" />
+    <Folder Include="test\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
