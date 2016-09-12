@@ -174,6 +174,12 @@ class UserRepository implements irepo.IUserRepository {
             //    return users;
         });
     }
+
+    resetPasswordRequest(username: string): Promise<boolean> {
+        return new Promise<boolean>(function (resolve, reject) {
+
+        });
+    }
 };
 
 export {UserRepository as userrepository };

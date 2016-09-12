@@ -63,4 +63,9 @@ userController.post('/signup', function (req, res) {
     });
 });
 
+userController.post('/reset', function (req, res) {
+    let user = req.body.userName;
+
+});
+
 module.exports = userController;
