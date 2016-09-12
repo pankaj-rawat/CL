@@ -62,14 +62,17 @@
     <Content Include="test\mocha.opts" />
     <Content Include="web.config" />
     <TypeScriptCompile Include="db.ts" />
+    <TypeScriptCompile Include="definition.ts" />
     <TypeScriptCompile Include="index.ts" />
     <TypeScriptCompile Include="Interfaces\IAuthRepository.ts" />
+    <TypeScriptCompile Include="Interfaces\IBusinessRepository.ts" />
     <TypeScriptCompile Include="Interfaces\ICityStateCountryRepository.ts" />
     <TypeScriptCompile Include="Interfaces\IUserRepository.ts" />
     <TypeScriptCompile Include="logger.ts" />
     <TypeScriptCompile Include="clresponse.ts" />
     <TypeScriptCompile Include="Middlewares\requestValidator.ts" />
     <TypeScriptCompile Include="Models\authModel.ts" />
+    <TypeScriptCompile Include="Models\businessModel.ts" />
     <TypeScriptCompile Include="Models\citystatecountryModel.ts" />
     <TypeScriptCompile Include="Models\userModel.ts" />
     <TypeScriptCompile Include="Repositories\authRepository.ts" />

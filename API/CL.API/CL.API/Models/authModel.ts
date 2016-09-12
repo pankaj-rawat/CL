@@ -5,6 +5,7 @@
 }
 
 export interface AuthUsermodel {
+    id:number,
     userName: string,
-    roles: Array<string>
+    roles: Array<number>
 }

@@ -14,3 +14,13 @@ describe("Simple Tests", function () {
             });
         });
 });
+
+//describe('public', function () {
+//    beforeEach(function () {
+//        var collection = { title: 'This is test collection', public: true };
+//        it("", function () {
+//            assert.ok(true);
+//        });
+        
+//    });
+//});

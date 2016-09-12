@@ -56,7 +56,6 @@ class UserRepository implements irepo.IUserRepository {
             }
         });
     }
-
     create(user: model.UserModel): Promise<model.UserModel> {
         return new Promise(function (resolve, reject) {
             db.get().getConnection(function (err, connection) {
@@ -89,7 +88,6 @@ class UserRepository implements irepo.IUserRepository {
             });
         });
     }
-
     update(user: model.UserModel): Promise<model.UserModel> {
         return new Promise(function (resolve, reject) {
             let user: model.UserModel;
@@ -118,10 +116,46 @@ class UserRepository implements irepo.IUserRepository {
                 //}
             });
         });
-    }
-
+    }  
     remove(id: number): Promise<number> {
         return new Promise(function (resolve, reject) {
+        });
+    }
+
+    getUserRoles(id: number): Promise<Array<number>> {
+        return new Promise(function (resolve, reject) {
+            if (id != null) {
+                try {
+                    db.get().getConnection(function (err, connection) {
+                        if (err != null) {
+                            Logger.log.error(err);
+                            reject(err);
+                        }
+                        else {
+                            let roles:Array<number>=new Array<number>();
+                            let query = connection.query("Select idrole from userrole where iduser=?", id);
+                            query.on('error', function (err) {
+                                Logger.log.error(err);
+                                reject(err);
+                            });
+                            query.on('result', function (row) {
+                                roles.push(row.idrole);
+                            });
+                            query.on('end', function (result) {
+                                resolve(roles);
+                            });
+                        }
+                    });
+                }
+                catch (err) {
+                    Logger.log.error(err);
+                    reject(err);
+                }
+            }
+            else {
+                Logger.log.info("No user supplied");
+                reject(new Error("No user supplied."));
+            }
         });
     }
 

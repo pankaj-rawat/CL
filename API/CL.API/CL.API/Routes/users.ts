@@ -28,7 +28,7 @@ userController.get('/:id', function (req, res) {
     });
 });
 
-userController.post('/', function (req, res) {
+userController.post('/signup', function (req, res) {
     let usrepo = new userrepository();
     let userP: Promise<model.UserModel>;
     let user: model.UserModel;
