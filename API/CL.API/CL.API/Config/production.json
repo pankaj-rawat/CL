@@ -1,1 +1,16 @@
-﻿
+﻿//contain setting only relevent to prod to override default.json values.
+{
+  "dbConfig": {
+    "host": "127.0.0.1",
+    "port": 3306,
+    "user": "root",
+    "password": "mysqlroot",
+    "database": "citylocaldb"
+  },
+  "server": {
+    "port": 1338
+  },
+  "token": {
+    "key": "aaa.sss.sss.ssh"
+  }
+}

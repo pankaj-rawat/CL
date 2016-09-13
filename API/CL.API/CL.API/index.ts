@@ -4,10 +4,10 @@ import config = require('config');
 import {Logger}  from "./logger";
 
 //make 'production' for production here or set the environment variable.
-let environment = process.env.NODE_ENV || 'dev';
+let environment = process.env.NODE_ENV || 'development';
 let server:https.Server = require("./server");
 let port: string;
-port= process.env.PORT || config.get('server.port'); //set our port
+port = config.get('server.port')|| process.env.PORT; //set our port
 
 
 db.connect(environment, function (err) {
