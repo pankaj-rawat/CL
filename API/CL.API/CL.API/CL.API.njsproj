@@ -117,6 +117,7 @@
     <Folder Include="Interfaces\" />
     <Folder Include="Middlewares\" />
     <Folder Include="Models\" />
+    <Folder Include="SSL_CERT\" />
     <Folder Include="Repositories\" />
     <Folder Include="Routes\" />
     <Folder Include="Scripts\" />
