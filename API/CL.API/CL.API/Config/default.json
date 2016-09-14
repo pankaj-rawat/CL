@@ -26,6 +26,7 @@
     "port": 1337
   },
   "token": {
+    "daysToExpire": 1,
     "key": "sss.sss.sss.ssh"
   }
 }

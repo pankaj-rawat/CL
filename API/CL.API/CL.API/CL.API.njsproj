@@ -60,6 +60,8 @@
     <Content Include="Config\default.json" />
     <Content Include="Config\production.json" />
     <Content Include="Scripts\tsd.json" />
+    <Content Include="SSL_CERT\cert.pem" />
+    <Content Include="SSL_CERT\key.pem" />
     <Content Include="test\mocha.opts" />
     <Content Include="web.config" />
     <TypeScriptCompile Include="db.ts" />

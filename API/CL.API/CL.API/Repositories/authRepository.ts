@@ -61,7 +61,7 @@ function validate(username: string, password: string): Promise<model.AuthUsermod
             else {
                 let query = connection.query("CALL sp_user_select_pwd(?)", [username]);
                 query.on('error', function (err) {
-                    Logger.log.info("Error occur whilevalidating password. Error:" + err.message);
+                    Logger.log.info("Error occur while validating password. Error:" + err.message);
                     reject(err);
                 });
 
@@ -91,7 +91,10 @@ function validate(username: string, password: string): Promise<model.AuthUsermod
 }
 // private method
 function genToken(user: model.AuthUsermodel): model.AuthModel {
-    let expires = expiresIn(7); // 7 days
+    let expires = expiresIn(Number(config.get("token.daysToExpire")));
+    Logger.log.info(expires.toString());
+    Logger.log.info(expires.toUTCString());
+
     let token = jwt.encode({
         exp: expires
     }, String(config.get("token.key")));
@@ -102,7 +105,8 @@ function genToken(user: model.AuthUsermodel): model.AuthModel {
         user: user
     };
 }
-function expiresIn(numDays) {
+function expiresIn(numDays:number):Date {
     let dateObj = new Date();
-    return dateObj.setDate(dateObj.getDate() + numDays);
+    dateObj.setDate(dateObj.getDate() + numDays);
+    return dateObj;
 }
