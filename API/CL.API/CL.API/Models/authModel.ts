@@ -1,10 +1,11 @@
 ﻿export interface AuthModel {
     token: string,
-    expires: number,
+    expires: Date,
     user: AuthUsermodel
 }
 
 export interface AuthUsermodel {
+    id:number,
     userName: string,
-    roles: string[]
+    roles: Array<number>
 }

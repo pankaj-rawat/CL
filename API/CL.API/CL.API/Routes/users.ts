@@ -28,7 +28,7 @@ userController.get('/:id', function (req, res) {
     });
 });
 
-userController.post('/', function (req, res) {
+userController.post('/signup', function (req, res) {
     let usrepo = new userrepository();
     let userP: Promise<model.UserModel>;
     let user: model.UserModel;
@@ -61,6 +61,11 @@ userController.post('/', function (req, res) {
         };
         res.send(clres);
     });
+});
+
+userController.post('/reset', function (req, res) {
+    let user = req.body.userName;
+
 });
 
 module.exports = userController;

@@ -9,11 +9,15 @@ cityController.get('/:id', function (req, res) {
     let cscrepo = new cityRepository();   
     try {
         let id = req.params.id;
-
-        cscrepo.find(id, function (result) {
-            clRes = { data: result, isValid: true };
-            res.send(clRes);
-        });       
+        cscrepo.find(id)
+            .then(function (result) {
+                clRes = { data: result, isValid: true };
+                res.send(clRes);
+            })
+            .catch(function (err) {
+                clRes = { message: err, isValid: false }
+                res.send(clRes);
+            });
     }
     catch (Error) {
         clRes = { message: Error, isValid: false }
@@ -27,10 +31,16 @@ cityController.get('/', function (req, res) {
     let clRes: clResponse.clResponse;   
     let cscrepo = new cityRepository();
     try {
-        cscrepo.getAll(function (result) {
-            clRes = { data: result, isValid: true };
-            res.send(clRes);
-        });
+
+        cscrepo.getAll()
+            .then(function (result) {
+                clRes = { data: result, isValid: true };
+                res.send(clRes);
+            })
+            .catch(function (err) {
+                clRes = { message: err, isValid: false }
+                res.send(clRes);
+            });
     }
     catch (Error) {
         clRes = { message: Error, isValid: false }

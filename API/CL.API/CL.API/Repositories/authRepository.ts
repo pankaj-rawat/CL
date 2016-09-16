@@ -1,10 +1,12 @@
 ﻿import irepo = require("../Interfaces/IAuthRepository");
+import {userrepository} from  "./userrepository";
 import jwt = require('jwt-simple');
 import config = require('config');
 import * as db from "../db";
 import {Logger}  from "../logger";
 import * as model  from "../Models/authModel";
 import bcrypt = require('bcryptjs');
+import {Role} from "../definition";
 
 export class authRepository implements irepo.IAuthRepository {
 
@@ -19,7 +21,7 @@ export class authRepository implements irepo.IAuthRepository {
             }
             else {
                 let validatePromise: Promise<model.AuthUsermodel> = validate(username, password);
-                validatePromise.then(function (result:model.AuthUsermodel) {
+                validatePromise.then(function (result: model.AuthUsermodel) {
                     if (result != null) {
                         auth = genToken(result);
                     }
@@ -32,12 +34,16 @@ export class authRepository implements irepo.IAuthRepository {
         });
     }
 
-    validateUser(username: string, res: (auth: model.AuthUsermodel) => void): void {
-        let dbUserObj: model.AuthUsermodel = { // spoofing a userobject from the DB. 
-            roles: ['admin'],
-            userName: 'prawat@myapp.com'
-        };
-        res(dbUserObj);
+    validateUser(userId: number, res: (userRoles: Array<number>) => void): void {
+        let userRepo: userrepository = new userrepository();
+        userRepo.getUserRoles(userId)
+            .then(function (result: Array<number>) {
+                res(result);
+            })
+            .catch(function (err) {
+                Logger.log.error(err);
+                res(null);
+            });
     }
 }
 
@@ -45,8 +51,9 @@ function validate(username: string, password: string): Promise<model.AuthUsermod
     return new Promise(function (resolve, reject) {
         db.get().getConnection(function (err, connection) {
             let pwd: string;
+            let userId: number;
             let user: model.AuthUsermodel;
-            let userRoles: Array<string> = new Array<string>();
+            let userRoles: Array<number> = new Array<number>();
             if (err != null) {
                 Logger.log.info("Error occur while validating password. Error:" + err.message);
                 reject(err);
@@ -54,21 +61,23 @@ function validate(username: string, password: string): Promise<model.AuthUsermod
             else {
                 let query = connection.query("CALL sp_user_select_pwd(?)", [username]);
                 query.on('error', function (err) {
-                    Logger.log.info("Error occur whilevalidating password. Error:" + err.message);
+                    Logger.log.info("Error occur while validating password. Error:" + err.message);
                     reject(err);
                 });
 
-                query.on('result', function (row) {                   
+                query.on('result', function (row) {
                     if (row.password != null) {
                         pwd = row.password;
-                        userRoles.push(row.value);  
+                        userId = row.id;
+                        userRoles.push(row.role);
                     }
                 });
                 query.on('end', function (result) {
                     if (bcrypt.compareSync(password, pwd)) {
-                        user = { // spoofing a userobject from the DB. 
+                        user = {
                             roles: userRoles,
-                            userName: username
+                            userName: username,
+                            id: userId
                         };
                     }
                     else {
@@ -82,7 +91,10 @@ function validate(username: string, password: string): Promise<model.AuthUsermod
 }
 // private method
 function genToken(user: model.AuthUsermodel): model.AuthModel {
-    let expires = expiresIn(7); // 7 days
+    let expires = expiresIn(Number(config.get("token.daysToExpire")));
+    Logger.log.info(expires.toString());
+    Logger.log.info(expires.toUTCString());
+
     let token = jwt.encode({
         exp: expires
     }, String(config.get("token.key")));
@@ -93,7 +105,8 @@ function genToken(user: model.AuthUsermodel): model.AuthModel {
         user: user
     };
 }
-function expiresIn(numDays) {
+function expiresIn(numDays:number):Date {
     let dateObj = new Date();
-    return dateObj.setDate(dateObj.getDate() + numDays);
+    dateObj.setDate(dateObj.getDate() + numDays);
+    return dateObj;
 }
