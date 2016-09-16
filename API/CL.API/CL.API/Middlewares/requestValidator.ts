@@ -3,6 +3,7 @@ import jwt = require('jwt-simple');
 import {authRepository} from "../Repositories/authRepository";
 import config = require('config');
 import *  as model from "../Models/authModel";
+import {Role} from "../definition";
 
 export class RequestValidator {
 
@@ -17,14 +18,14 @@ export class RequestValidator {
         const httpStatus_FORBIDDEN = 403;
         const httpStatus_UNAUTHORIZED = 401;
         const httpStatus_INTERNALSERVERERROR = 500;
-        const unsecuredRoutes: string[] = ['api/login', 'api/search','api/user/signup'];//public route
+        const unsecuredRoutes: string[] = ['api/login', 'api/search', 'api/user/signup'];//public route
 
         let token = (req.body && req.body.access_token) || (req.query && req.query.access_token) || req.headers['x-access-token'];
         let key = (req.body && req.body.x_key) || (req.query && req.query.x_key) || req.headers['x-key'];
 
         if ((req.url.indexOf('api/login') >= 0)
             || (req.url.indexOf('api/search') >= 0)
-            || (req.url.indexOf('api/user/signup') >= 0)) {
+            || (req.url.indexOf('api/users/signup') >= 0)) {
             next();
         }
         else if (token || key) {
@@ -40,9 +41,9 @@ export class RequestValidator {
                 }
                 let authRepo = new authRepository();
                 // The key would be the logged in user's username
-                authRepo.validateUser(key, function (authUser) {
-                    if (authUser) {
-                        if (ld.includes(authUser.roles, 'admin')) {
+                authRepo.validateUser(key, function (userRoles) {
+                    if (userRoles) {
+                        if (ld.includes(userRoles, Role.Admin)) {
                             next(); // To move to next middleware
                         }
                         else {
@@ -53,17 +54,6 @@ export class RequestValidator {
                             });
                             return;
                         }
-                        //if ((req.url.indexOf('clapis') >= 0 && ld.includes(authUser.roles, 'admin'))
-                        //    || (req.url.indexOf('clapis') < 0 && req.url.indexOf('clapi') >= 0)) {
-                        //    next(); // To move to next middleware
-                        //} else {
-                        //    res.status(httpStatus_FORBIDDEN);
-                        //    res.json({
-                        //        "status": httpStatus_FORBIDDEN,
-                        //        "message": "Not Authorized"
-                        //    });
-                        //    return;
-                        //}
                     } else {
                         // No user with this name exists, respond back with a 401
                         res.status(httpStatus_UNAUTHORIZED);

@@ -1,4 +1,6 @@
-﻿import express = require('express');
+﻿import https = require('https');
+import express = require('express');
+import fs = require('fs');
 import bodyParser = require('body-parser');
 import {Logger}  from "./logger";
 import {RequestValidator} from './Middlewares/requestValidator';
@@ -7,6 +9,14 @@ import {RouteBuilder} from './routeBuilder';
 var app = express();
 var router = new RouteBuilder();
 var validateRequest = new RequestValidator();
+let key = fs.readFileSync('SSL_CERT/key.pem');
+let cert = fs.readFileSync('SSL_CERT/cert.pem');
+
+let httpsServerOption = {
+    cert : cert,
+    key : key
+};
+
 
 // configure app to use bodyParser()
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -20,4 +30,4 @@ process.on('unhandledRejection', (reason,p) => {
 process.on('uncaughtException', (reason, p) => {
     Logger.log.error(reason);
 });
-module.exports = app;
+module.exports = https.createServer(httpsServerOption, app);
