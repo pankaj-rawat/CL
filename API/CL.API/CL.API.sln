@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "CL.API", "CL.API\CL.API.njsproj", "{AC4F7522-AB9A-4193-B8A2-DF7FB48756A4}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "CL.API", "CL.API.njsproj", "{AC4F7522-AB9A-4193-B8A2-DF7FB48756A4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B71524B4-A5B6-4F17-A626-BD91B3EF7963}"
 	ProjectSection(SolutionItems) = preProject
