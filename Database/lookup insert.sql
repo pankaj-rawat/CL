@@ -2,6 +2,80 @@ INSERT INTO Country (ID,name,abbr) VALUES(1,'India','IN');
 INSERT INTO Country (ID,name,abbr) VALUES(2,'United States','US');
 
 INSERT INTO STATE(ID,name,idCountry,abbr) VALUES(1,'Uttarakhand',1,'UK');
+INSERT INTO state(name,idCountry,abbr) VALUES ('Delhi',1,'DL');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Uttar Pradesh',1,'UP');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Madhya Pradesh',1,'MP');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Haryana',1,'HR');
+
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Andhra Pradesh',1,'AP');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Arunachal Pradesh',1,'AR');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Assam',1,'AS');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Bihar',1,'BR');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Chhattisgarh',1,'CG');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Goa',1,'GA');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Gujarat',1,'GJ');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Himachal Pradesh',1,'HP');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Jammu and Kashmir',1,'JK');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Jharkhand',1,'JH');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Karnataka',1,'KA');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Kerala',1,'KL');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Maharashtra',1,'MH');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Manipur',1,'MN');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Meghalaya',1,'ML');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Mizoram',1,'MZ');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Nagaland',1,'NL');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Orissa',1,'OR');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Punjab',1,'PB');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Rajasthan',1,'RJ');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Sikkim',1,'SK');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Tamil Nadu',1,'TN');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Tripura',1,'TR');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Uttarakhand',1,'UK');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('West Bengal',1,'WB');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Tamil Nadu',1,'TN');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Tripura',1,'TR');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Andaman and Nicobar Islands',1,'AN');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Chandigarh',1,'CH');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Dadra and Nagar Haveli',1,'DH');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Daman and Diu',1,'DD');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Lakshadweep',1,'LD');
+
+INSERT INTO state(name,idCountry,abbr) VALUES ('Pondicherry',1,'PY');
 
 INSERT INTO CITY(ID,name,idState) VALUES(1,'Haldwani',1);
 INSERT INTO CITY(ID,name,idState) VALUES(2,'Nainital',1);
