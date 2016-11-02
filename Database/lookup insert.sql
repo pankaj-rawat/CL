@@ -100,8 +100,7 @@ INSERT INTO activitytype(id,value)VALUES(5,'authentication');
 
 INSERT INTO role(id,value) VALUES(1,'guest');
 INSERT INTO role(id,value) VALUES(2,'admin');
-INSERT INTO role(id,value) VALUES(3,'bussinessowner');
-INSERT INTO role(id,value) VALUES(4,'registereduser');
+INSERT INTO role(id,value) VALUES(3,'registereduser');
 
 INSERT INTO registrationplan(id,name,active,detail,createdOn,price) VALUES(1,'Promotion',1,'Promotional package',now(),0.0);
 INSERT INTO registrationplan(id,name,active,detail,createdOn,price) VALUES(2,'Gold',1,'Gold package',now(),100.0);
@@ -146,6 +145,51 @@ INSERT INTO tag(id,value,idCategory,active) VALUES(3,'Cookie',2,1);
 INSERT INTO tag(id,value,idCategory,active) VALUES(4,'Biscuit',2,1);
 INSERT INTO tag(id,value,idCategory,active) VALUES(5,'Carpet cleaning',3,1);
 
+insert into action(id,name,value) VALUES(1,'Get',1);
+insert into action(id,name,value) VALUES(2,'Put',2);
+insert into action(id,name,value) VALUES(3,'Post',4);
+insert into action(id,name,value) VALUES(4,'Delete',8);
+
+insert into resource(id,name)VALUES(1,'Auth');
+insert into resource(id,name)VALUES(2,'Businesses');
+insert into resource(id,name)VALUES(3,'Categories');
+insert into resource(id,name)VALUES(4,'Cities');
+insert into resource(id,name)VALUES(5,'Countries');
+insert into resource(id,name)VALUES(6,'RegistrationPlans');
+insert into resource(id,name)VALUES(7,'States');
+insert into resource(id,name)VALUES(8,'Tags');
+insert into resource(id,name)VALUES(9,'Users');
 
 
+/*1	guest*/
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('1', '1', '15');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('1', '2', '1');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('1', '3', '1');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('1', '4', '1');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('1', '5', '1');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('1', '6', '1');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('1', '7', '1');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('1', '8', '1');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('1', '9', '0');
 
+/*2	admin*/
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '1', '15');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '2', '15');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '3', '15');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '4', '15');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '5', '15');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '6', '15');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '7', '15');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '8', '15');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '9', '15');
+
+/*3	registereduser*/
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '1', '15');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '2', '7');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '3', '1');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '4', '1');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '5', '1');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '6', '1');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '7', '1');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '8', '1');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '9', '7');
