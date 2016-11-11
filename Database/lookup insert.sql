@@ -133,7 +133,7 @@ INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES
 INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('1', '6', '1');
 INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('1', '7', '1');
 INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('1', '8', '1');
-INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('1', '9', '0');
+INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('1', '9', '4');
 
 /*2	admin*/
 INSERT INTO `resource_role_rights` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '1', '15');
