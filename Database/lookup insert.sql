@@ -42,6 +42,7 @@ INSERT INTO state(id,name,idCountry,abbr) VALUES (38,'Pondicherry',1,'PY');
 
 INSERT INTO CITY(ID,name,idState) VALUES(1,'Haldwani',1);
 INSERT INTO CITY(ID,name,idState) VALUES(2,'Nainital',1);
+INSERT INTO CITY(ID,name,idState) VALUES(3,'Hapur',3);
 
 INSERT INTO Status(id,value) VALUES(1,'Active');
 INSERT INTO Status(id,value) VALUES(2,'In-active');
