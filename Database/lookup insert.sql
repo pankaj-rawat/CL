@@ -1,7 +1,7 @@
-INSERT INTO Country (ID,name,abbr) VALUES(1,'India','IN');
-INSERT INTO Country (ID,name,abbr) VALUES(2,'United States','US');
+INSERT INTO country (ID,name,abbr) VALUES(1,'India','IN');
+INSERT INTO country (ID,name,abbr) VALUES(2,'United States','US');
 
-INSERT INTO STATE(ID,name,idCountry,abbr) VALUES(1,'Uttarakhand',1,'UK');
+INSERT INTO state(ID,name,idCountry,abbr) VALUES(1,'Uttarakhand',1,'UK');
 INSERT INTO state(id,name,idCountry,abbr) VALUES (2,'Delhi',1,'DL');
 INSERT INTO state(id,name,idCountry,abbr) VALUES (3,'Uttar Pradesh',1,'UP');
 INSERT INTO state(id,name,idCountry,abbr) VALUES (4,'Madhya Pradesh',1,'MP');
@@ -39,43 +39,43 @@ INSERT INTO state(id,name,idCountry,abbr) VALUES (35,'Daman and Diu',1,'DD');
 INSERT INTO state(id,name,idCountry,abbr) VALUES (36,'Lakshadweep',1,'LD');
 INSERT INTO state(id,name,idCountry,abbr) VALUES (37,'Pondicherry',1,'PY');
 
-INSERT INTO CITY(ID,name,idState) VALUES(1,'Haldwani',1);
-INSERT INTO CITY(ID,name,idState) VALUES(2,'Nainital',1);
-INSERT INTO CITY(ID,name,idState) VALUES(3,'Hapur',3);
+INSERT INTO city(ID,name,idState) VALUES(1,'Haldwani',1);
+INSERT INTO city(ID,name,idState) VALUES(2,'Nainital',1);
+INSERT INTO city(ID,name,idState) VALUES(3,'Hapur',3);
 
-INSERT INTO Status(id,value) VALUES(1,'Active');
-INSERT INTO Status(id,value) VALUES(2,'In-active');
-INSERT INTO Status(id,value) VALUES(3,'Verified');
-INSERT INTO Status(id,value) VALUES(4,'Verification Pending');
-INSERT INTO Status(id,value) VALUES(5,'Reported data incorrect');
-INSERT INTO Status(id,value) VALUES(6,'Blocked');
+INSERT INTO status(id,value) VALUES(1,'Active');
+INSERT INTO status(id,value) VALUES(2,'In-active');
+INSERT INTO status(id,value) VALUES(3,'Verified');
+INSERT INTO status(id,value) VALUES(4,'Verification Pending');
+INSERT INTO status(id,value) VALUES(5,'Reported data incorrect');
+INSERT INTO status(id,value) VALUES(6,'Blocked');
 
-INSERT INTO acceptanceType(id,value) VALUES(1,'Like');
-INSERT INTO acceptanceType(id,value) VALUES(2,'Dislike');
-INSERT INTO acceptanceType(id,value) VALUES(3,'Average');
+INSERT INTO acceptance_type(id,value) VALUES(1,'Like');
+INSERT INTO acceptance_type(id,value) VALUES(2,'Dislike');
+INSERT INTO acceptance_type(id,value) VALUES(3,'Average');
 
-INSERT INTO activitytype(id,value)VALUES(1,'business');
-INSERT INTO activitytype(id,value)VALUES(2,'offer');
-INSERT INTO activitytype(id,value)VALUES(3,'userprofile');
-INSERT INTO activitytype(id,value)VALUES(4,'search');
-INSERT INTO activitytype(id,value)VALUES(5,'authentication');
+INSERT INTO activity_type(id,value)VALUES(1,'business');
+INSERT INTO activity_type(id,value)VALUES(2,'offer');
+INSERT INTO activity_type(id,value)VALUES(3,'userprofile');
+INSERT INTO activity_type(id,value)VALUES(4,'search');
+INSERT INTO activity_type(id,value)VALUES(5,'authentication');
 
 
 INSERT INTO role(id,value) VALUES(1,'guest');
 INSERT INTO role(id,value) VALUES(2,'admin');
 INSERT INTO role(id,value) VALUES(3,'registereduser');
 
-INSERT INTO registrationplan(id,name,active,detail,createdOn,price) VALUES(1,'Promotion',1,'Promotional package',now(),0.0);
-INSERT INTO registrationplan(id,name,active,detail,createdOn,price) VALUES(2,'Gold',1,'Gold package',now(),100.0);
+INSERT INTO registration_plan(id,name,active,detail,createdOn,price) VALUES(1,'Promotion',1,'Promotional package',now(),0.0);
+INSERT INTO registration_plan(id,name,active,detail,createdOn,price) VALUES(2,'Gold',1,'Gold package',now(),100.0);
 
-INSERT INTO registrationplanfeature(idRegistrationPlan,feature,active,createdOn) VALUES(1,'1 Property',1,now());
-INSERT INTO registrationplanfeature(idRegistrationPlan,feature,active,createdOn) VALUES(1,'1 Agent Profile',1,now());
-INSERT INTO registrationplanfeature(idRegistrationPlan,feature,active,createdOn) VALUES(1,'Agency Profile',1,now());
-INSERT INTO registrationplanfeature(idRegistrationPlan,feature,active,createdOn) VALUES(1,'Featured Property',1,now());
-INSERT INTO registrationplanfeature(idRegistrationPlan,feature,active,createdOn) VALUES(2,'Unlimited Properties',1,now());
-INSERT INTO registrationplanfeature(idRegistrationPlan,feature,active,createdOn) VALUES(2,'1 Agent Profile',1,now());
-INSERT INTO registrationplanfeature(idRegistrationPlan,feature,active,createdOn) VALUES(2,'Agency Profile',1,now());
-INSERT INTO registrationplanfeature(idRegistrationPlan,feature,active,createdOn) VALUES(2,'Featured Properties',1,now());
+INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createdOn) VALUES(1,'1 Property',1,now());
+INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createdOn) VALUES(1,'1 Agent Profile',1,now());
+INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createdOn) VALUES(1,'Agency Profile',1,now());
+INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createdOn) VALUES(1,'Featured Property',1,now());
+INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createdOn) VALUES(2,'Unlimited Properties',1,now());
+INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createdOn) VALUES(2,'1 Agent Profile',1,now());
+INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createdOn) VALUES(2,'Agency Profile',1,now());
+INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createdOn) VALUES(2,'Featured Properties',1,now());
 
 INSERT INTO category(id,value) VALUE(1,'Grocery');
 INSERT INTO category(id,value) VALUE(2,'Baker');
@@ -139,24 +139,24 @@ INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES
 INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('1', '9', '16');
 
 /*2	admin*/
-INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '1', '255');
-INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '2', '255');
-INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '3', '255');
-INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '4', '255');
-INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '5', '255');
-INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '6', '255');
-INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '7', '255');
-INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '8', '255');
-INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '9', '255');
+INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '1', '85');
+INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '2', '85');
+INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '3', '85');
+INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '4', '85');
+INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '5', '85');
+INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '6', '85');
+INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '7', '85');
+INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '8', '85');
+INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '9', '85');
 
 /*3	registereduser*/
 INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '1', '16');
-INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '2', '187');
+INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '2', '153');
 INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '3', '1');
 INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '4', '1');
 INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '5', '1');
 INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '6', '1');
 INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '7', '1');
-INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '8', '49');
-INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '9', '186');
+INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '8', '17');
+INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '9', '154');
 
