@@ -57,8 +57,10 @@ INSERT INTO acceptance_type(id,value) VALUES(3,'Average');
 INSERT INTO activity_type(id,value)VALUES(1,'business');
 INSERT INTO activity_type(id,value)VALUES(2,'offer');
 INSERT INTO activity_type(id,value)VALUES(3,'userprofile');
-INSERT INTO activity_type(id,value)VALUES(4,'search');
-INSERT INTO activity_type(id,value)VALUES(5,'authentication');
+INSERT INTO activity_type(id,value)VALUES(4,'authentication');
+INSERT INTO activity_type(id,value)VALUES(5,'password change');
+INSERT INTO activity_type(id,value)VALUES(6,'password reset request');
+INSERT INTO activity_type(id,value)VALUES(6,'password reset');
 
 
 INSERT INTO role(id,value) VALUES(1,'guest');
