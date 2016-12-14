@@ -67,17 +67,17 @@ INSERT INTO role(id,value) VALUES(1,'guest');
 INSERT INTO role(id,value) VALUES(2,'admin');
 INSERT INTO role(id,value) VALUES(3,'registereduser');
 
-INSERT INTO registration_plan(id,name,active,detail,createdOn,price) VALUES(1,'Promotion',1,'Promotional package',now(),0.0);
-INSERT INTO registration_plan(id,name,active,detail,createdOn,price) VALUES(2,'Gold',1,'Gold package',now(),100.0);
+INSERT INTO registration_plan(id,name,active,detail,createDate,price) VALUES(1,'Promotion',1,'Promotional package',now(),0.0);
+INSERT INTO registration_plan(id,name,active,detail,createDate,price) VALUES(2,'Gold',1,'Gold package',now(),100.0);
 
-INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createdOn) VALUES(1,'1 Property',1,now());
-INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createdOn) VALUES(1,'1 Agent Profile',1,now());
-INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createdOn) VALUES(1,'Agency Profile',1,now());
-INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createdOn) VALUES(1,'Featured Property',1,now());
-INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createdOn) VALUES(2,'Unlimited Properties',1,now());
-INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createdOn) VALUES(2,'1 Agent Profile',1,now());
-INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createdOn) VALUES(2,'Agency Profile',1,now());
-INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createdOn) VALUES(2,'Featured Properties',1,now());
+INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createDate) VALUES(1,'1 Property',1,now());
+INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createDate) VALUES(1,'1 Agent Profile',1,now());
+INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createDate) VALUES(1,'Agency Profile',1,now());
+INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createDate) VALUES(1,'Featured Property',1,now());
+INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createDate) VALUES(2,'Unlimited Properties',1,now());
+INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createDate) VALUES(2,'1 Agent Profile',1,now());
+INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createDate) VALUES(2,'Agency Profile',1,now());
+INSERT INTO registration_plan_feature(idRegistrationPlan,feature,active,createDate) VALUES(2,'Featured Properties',1,now());
 
 INSERT INTO category(id,value) VALUE(1,'Grocery');
 INSERT INTO category(id,value) VALUE(2,'Baker');
