@@ -114,10 +114,9 @@ insert into action(id,name,value) VALUES(1,'Get Any',1);
 insert into action(id,name,value) VALUES(2,'Get Owned',2);
 insert into action(id,name,value) VALUES(3,'Put Any',4);
 insert into action(id,name,value) VALUES(4,'Put Owned',8);
-insert into action(id,name,value) VALUES(5,'Post Any',16);
-insert into action(id,name,value) VALUES(6,'Post Owned',32);
-insert into action(id,name,value) VALUES(7,'Delete Any',64);
-insert into action(id,name,value) VALUES(8,'Delete Owned',128);
+insert into action(id,name,value) VALUES(5,'Post',16);
+insert into action(id,name,value) VALUES(7,'Delete Any',32);
+insert into action(id,name,value) VALUES(8,'Delete Owned',64);
 
 insert into resource(id,name)VALUES(1,'Auth');
 insert into resource(id,name)VALUES(2,'Businesses');
@@ -162,3 +161,16 @@ INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES
 INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '8', '17');
 INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '9', '154');
 
+INSERT INTO result_code(id,remark) VALUES(1,'success');
+INSERT INTO result_code(id,remark) VALUES(2,'Email not exists.');
+INSERT INTO result_code(id,remark) VALUES(3,'Either the code or business\user id do not match or exists.');
+INSERT INTO result_code(id,remark) VALUES(4,'Either the business do not exists or user is already assigned to the business .');
+
+#Transaction DATA
+
+#admin user.
+
+INSERT INTO user(id,email,password,phoneLandLine,createDate,idStatus,idCity,subscriptionOptin,subscriptionOptinDate)
+VALUES(1,'admin@citylocal.biz','$2a$10$/llSw0BT80H1aPV.22Q92u/QdrJ3oTv2LesL7JexyA2x3PW.7l4iy','7021111111',utc_date(),3,1,1,utc_date());
+
+INSERT INTO userrole(idUser,idRole)	VALUES(1,2 /*admin user*/);
