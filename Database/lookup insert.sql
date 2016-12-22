@@ -127,6 +127,7 @@ insert into resource(id,name)VALUES(6,'RegistrationPlans');
 insert into resource(id,name)VALUES(7,'States');
 insert into resource(id,name)VALUES(8,'Tags');
 insert into resource(id,name)VALUES(9,'Users');
+insert into resource(id,name)VALUES(10,'Reviews');
 
 /*1	guest*/
 INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('1', '1', '16');
@@ -138,6 +139,7 @@ INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES
 INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('1', '7', '1');
 INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('1', '8', '17');
 INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('1', '9', '16');
+INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('1', '10', '1');
 
 /*2	admin*/
 INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '1', '85');
@@ -149,6 +151,7 @@ INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES
 INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '7', '85');
 INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '8', '85');
 INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '9', '85');
+INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('2', '10', '53');
 
 /*3	registereduser*/
 INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '1', '16');
@@ -160,6 +163,7 @@ INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES
 INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '7', '1');
 INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '8', '17');
 INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '9', '154');
+INSERT INTO `resource_role_access` (`idRole`, `idResource`, `actionMask`) VALUES ('3', '10', '89');
 
 INSERT INTO result_code(id,remark) VALUES(1,'success');
 INSERT INTO result_code(id,remark) VALUES(2,'Email not exists.');
@@ -173,4 +177,4 @@ INSERT INTO result_code(id,remark) VALUES(4,'Either the business do not exists o
 INSERT INTO user(id,email,password,phoneLandLine,createDate,idStatus,idCity,subscriptionOptin,subscriptionOptinDate)
 VALUES(1,'admin@citylocal.biz','$2a$10$/llSw0BT80H1aPV.22Q92u/QdrJ3oTv2LesL7JexyA2x3PW.7l4iy','7021111111',utc_date(),3,1,1,utc_date());
 
-INSERT INTO userrole(idUser,idRole)	VALUES(1,2 /*admin user*/);
+INSERT INTO user_role(idUser,idRole)	VALUES(1,2 /*admin user*/);
